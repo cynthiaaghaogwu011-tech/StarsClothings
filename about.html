@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STARSCLOTHING | Our Story</title>
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                    },
+                    letterSpacing: {
+                        widest: '0.2em',
+                        superwide: '0.3em',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#f7f7f7] text-[#111111] font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Global Header -->
+    <header class="bg-[#f7f7f7] border-b border-zinc-200 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-3 items-center h-20">
+                
+                <!-- Left Nav Links (Desktop) -->
+                <nav class="hidden lg:flex space-x-6 text-[10px] tracking-superwide uppercase text-zinc-500">
+                    <a href="shop.html" class="hover:text-black transition-colors">Collections</a>
+                    <a href="#" class="hover:text-black transition-colors">Lookbook</a>
+                </nav>
+
+                <!-- Mobile Left Hamburger -->
+                <div class="lg:hidden">
+                    <button id="mobile-nav-toggle" class="text-zinc-800 hover:text-black" aria-label="Toggle Menu">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Center Brand Logo -->
+                <div class="text-center justify-self-center">
+                    <a href="index.html" class="text-xs md:text-sm lg:text-base font-semibold tracking-[0.3em] text-black">S T A R S C L O T H I N G</a>
+                </div>
+
+                <!-- Right Nav Links & Icons -->
+                <div class="flex items-center space-x-4 md:space-x-6 justify-self-end text-[10px] tracking-superwide uppercase">
+                    <a href="#" class="hidden lg:inline text-zinc-500 hover:text-black transition-colors">Objects</a>
+                    <a href="about.html" class="hidden lg:inline text-black border-b border-black font-medium pb-0.5">Studio</a>
+                    <a href="#" class="text-zinc-800 hover:text-black transition-colors" aria-label="Shopping Bag">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1,0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0,1-1.12-1.243l1.264-12A1.125 1.125 0 0,1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1,1-.75 0 .375.375 0 0,1 .75 0Zm7.5 0a.375.375 0 1,1-.75 0 .375.375 0 0,1 .75 0Z" />
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobile-nav-menu" class="hidden lg:hidden bg-[#f7f7f7] border-b border-zinc-200 px-6 py-4 space-y-3">
+            <a href="shop.html" class="block text-[10px] tracking-superwide uppercase text-zinc-500">Collections</a>
+            <a href="#" class="block text-[10px] tracking-superwide uppercase text-zinc-500">Lookbook</a>
+            <a href="#" class="block text-[10px] tracking-superwide uppercase text-zinc-500">Objects</a>
+            <a href="about.html" class="block text-[10px] tracking-superwide uppercase text-black font-semibold">Studio</a>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow w-full space-y-24 md:space-y-32 py-12 md:py-20">
+
+        <!-- SECTION 1: Brand Narrative / Hero Split -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+                <!-- Left: Text Block -->
+                <div class="lg:col-span-5 space-y-8 pr-0 lg:pr-4">
+                    <div class="space-y-3">
+                        <span class="text-[11px] tracking-superwide text-zinc-400 uppercase font-medium">Our Story</span>
+                        <h1 class="text-3xl md:text-4xl lg:text-5xl font-light font-serif text-[#111111] leading-tight tracking-wide">
+                            Architectural Rigor, Fabric Integrity.
+                        </h1>
+                    </div>
+                    <p class="text-xs md:text-base text-zinc-600 leading-relaxed font-light">
+                        Founded on the principles of Brutalist architecture, STARSCLOTHING explores the intersection of raw material and human silhouette. We don't just design garments; we construct space around the body.
+                    </p>
+                    <div class="space-y-2.5">
+                        <span class="text-[11px] tracking-superwide text-zinc-400 uppercase font-medium">The Mission</span>
+                        <p class="text-xs md:text-base text-zinc-600 leading-relaxed font-light">
+                            To eliminate the noise of seasonal trends in favor of permanent architectural staples that age with grace and structural permanence.
+                        </p>
+                        <h1 class="text-2xl md:text-5xl font-medium mb-4 text-xs md:text-base text-zinc-600 leading-relaxed font-light">From Our Founder</h1>
+                        <p class="text-xs md:text-base text-zinc-400 space-y-4 font-light leading-relaxed">“Coming from a diverse city with diferrent experiences and services, I wanted to combine these with my experiences here in Abuja. I decided to create the Posh & POLISHED brand because I want to be part of the change needed to improve the standard of the hairdressing industry in Nigeria. My aim is for Posh & Polish is to be part of our clients' lifestyle rather than just a place to get their hair done. I hope to see you soon 🙂”</p>
+                        <p class="italic text-2xl md:text-3xl">- Esther Aghaogwu</p>
+
+                    </div>
+                </div>
+                <!-- Right: Large Portrait Architectural Image -->
+                <div class="lg:col-span-7">
+                    <div class="aspect-[4/5] md:aspect-[16/11] lg:aspect-[4/5] bg-neutral-100 overflow-hidden">
+                        <video loop autoplay controls muted>
+                            <source src="assets/video/1 (5).MP4" type="video/MP4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+       
+        <!-- SECTION 2: Process Gallery (Asymmetrical Grid) -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+            <div class="space-y-1">
+                <span class="text-[9px] tracking-superwide text-zinc-400 uppercase font-medium">Process</span>
+                <h2 class="text-xl md:text-2xl font-light font-serif text-[#111111] tracking-wide">
+                    From Drafting to Delivery
+                </h2>
+            </div>
+
+            <!-- Custom responsive asymmetry block -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+                <!-- Left: Full height pattern draft image -->
+                <div class="lg:col-span-7">
+                    <div class="aspect-[4/4] lg:aspect-[4/3.5] bg-neutral-100 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop" alt="Pattern Drafting process" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <!-- Right: Double-stacked image panels -->
+                <div class="lg:col-span-5 flex flex-col justify-between gap-6 lg:gap-8">
+                    <div class="aspect-[16/10] bg-neutral-100 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600&auto=format&fit=crop" alt="Fabric rolls and raw materials" class="w-full h-full object-cover">
+                    </div>
+                    <div class="aspect-[16/10] bg-neutral-100 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=600&auto=format&fit=crop" alt="Finished garment tailoring adjust" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Sustainability Block (Dark Banner Split) -->
+        <section class="bg-[#0d1425] text-white py-16 md:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                    
+                    <!-- Left: Responsibility copy -->
+                    <div class="lg:col-span-6 space-y-6">
+                        <span class="text-[10px] tracking-superwide text-[#9fb3c8] uppercase font-semibold block">Responsibility</span>
+                        <h2 class="text-2xl md:text-3xl font-light font-serif tracking-wide leading-snug">
+                            Sustainability and Materials Statement.
+                        </h2>
+                        <div class="text-xs md:text-base text-zinc-400 space-y-4 font-light leading-relaxed">
+                            <p>Our core collection is constructed from custom-developed 500GSM organic cotton fleece. Heavy, dense, and built for a lifetime of wear.</p>
+                            <p>By utilizing GOTS-certified fibers and closed-loop manufacturing in Portugal, we ensure that every fiber respects the earth as much as the architect respects the stone. We do not overproduce. Every garment is part of a numbered series, ensuring zero waste and maximum intentionality.</p>
+                        </div>
+                        <div class="pt-4">
+                            <a href="#" class="inline-block border border-zinc-400 hover:border-white text-white text-[10px] tracking-superwide uppercase px-8 py-3.5 font-light transition-colors">
+                                Read Transparency Report
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right: Macro Material Image with Overlaid Badge -->
+                    <div class="lg:col-span-6 relative">
+                        <div class="aspect-[4/3] bg-neutral-800 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop" alt="Organic Knit closeup detail" class="w-full h-full object-cover opacity-80 grayscale">
+                        </div>
+                        <!-- Floating Badge (Bottom-Left overlap) -->
+                        <div class="absolute bottom-0 left-0 bg-black text-white px-6 py-4 border border-zinc-900/50">
+                            <span class="text-[10px] tracking-widest uppercase block font-semibold">500GSM</span>
+                            <span class="text-[8px] tracking-widest text-zinc-400 uppercase block mt-1">Organic Integrity</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Quote Block -->
+        <section class="max-w-3xl mx-auto px-6 text-center space-y-6 py-8">
+            <!-- Sleek Centered Double Quote Graphic -->
+            <span class="text-5xl font-serif text-zinc-300 block select-none">”</span>
+            <blockquote class="text-lg md:text-xl font-light italic font-serif text-zinc-800 leading-relaxed">
+                "Clothing is the most intimate form of architecture. It is the building we carry with us."
+            </blockquote>
+            <span class="text-[9px] tracking-superwide text-zinc-500 uppercase block font-medium">
+                — Creative Director
+            </span>
+        </section>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-white border-t border-zinc-200 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
+                
+                <!-- Left Logo -->
+                <div class="text-[11px] font-medium tracking-[0.3em] text-[#111111]">
+                    S T A R S C L O T H I N G
+                </div>
+
+                <!-- Center Secondary Links -->
+                <div class="flex flex-wrap justify-center space-x-6 text-[9px] tracking-superwide text-zinc-500 uppercase">
+                    <a href="#" class="hover:text-black transition-colors">Privacy</a>
+                    <a href="#" class="hover:text-black transition-colors">Terms</a>
+                    <a href="#" class="hover:text-black transition-colors">Shipping</a>
+                    <a href="#" class="hover:text-black transition-colors">Inquiry</a>
+                </div>
+
+                <!-- Right Copyright -->
+                <div class="text-[9px] tracking-widest text-zinc-400 uppercase">
+                    &copy; 2024 STARSCLOTHING. ARCHITECTURAL RIGOR.
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JS Toggle -->
+    <script>
+        const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+        const mobileNavMenu = document.getElementById('mobile-nav-menu');
+        mobileNavToggle.addEventListener('click', () => {
+            mobileNavMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

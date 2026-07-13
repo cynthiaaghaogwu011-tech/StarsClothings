@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STARSCLOTHING | Assistance & FAQs</title>
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                    },
+                    letterSpacing: {
+                        widest: '0.2em',
+                        superwide: '0.3em',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#f7f7f7] text-[#111111] font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Global Header -->
+    <header class="bg-[#f7f7f7] border-b border-zinc-200 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Left: Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-xs md:text-sm lg:text-base font-semibold tracking-[0.3em] text-black">S T A R S C L O T H I N G</a>
+                </div>
+
+                <!-- Center: Navigation (Desktop) -->
+                <nav class="hidden lg:flex space-x-8 text-[10px] tracking-superwide uppercase">
+                    <a href="shop.html" class="text-zinc-500 hover:text-black transition-colors pb-1">Shop</a>
+                    <a href="#" class="text-zinc-500 hover:text-black transition-colors pb-1">Lookbook</a>
+                    <a href="#" class="text-zinc-500 hover:text-black transition-colors pb-1">Archive</a>
+                    <a href="contact.html" class="text-black border-b border-black font-medium pb-1">Contact</a>
+                </nav>
+
+                <!-- Right: Utilities (Bag & Profile) -->
+                <div class="flex items-center space-x-6">
+                    <a href="#" class="text-zinc-800 hover:text-black transition-colors" aria-label="Shopping Bag">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1,0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0,1-1.12-1.243l1.264-12A1.125 1.125 0 0,1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1,1-.75 0 .375.375 0 0,1 .75 0Zm7.5 0a.375.375 0 1,1-.75 0 .375.375 0 0,1 .75 0Z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="text-zinc-800 hover:text-black transition-colors" aria-label="Account">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1,1-7.5 0 3.75 3.75 0 0,1 7.5 0ZM4.501 20.118a7.5 7.5 0 0,1 14.998 0A17.933 17.933 0 0,1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                        </svg>
+                    </a>
+                    <!-- Mobile Hamburger -->
+                    <button id="mobile-nav-toggle" class="lg:hidden text-zinc-800 hover:text-black" aria-label="Toggle Menu">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Dropdown -->
+        <div id="mobile-nav-menu" class="hidden lg:hidden bg-[#f7f7f7] border-b border-zinc-200 px-6 py-4 space-y-3">
+            <a href="shop.html" class="block text-[10px] tracking-superwide uppercase text-zinc-500">Shop</a>
+            <a href="#" class="block text-[10px] tracking-superwide uppercase text-zinc-500">Lookbook</a>
+            <a href="#" class="block text-[10px] tracking-superwide uppercase text-zinc-500">Archive</a>
+            <a href="contact.html" class="block text-[10px] tracking-superwide uppercase text-black font-semibold">Contact</a>
+        </div>
+    </header>
+
+    <!-- Content Container -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-20">
+
+        <!-- Assistance Banner Image Section -->
+        <section class="relative w-full aspect-[21/9] md:aspect-[24/8] overflow-hidden bg-zinc-200">
+            <!-- Architectural lookbook-style interior pattern background -->
+            <img src="assets/images/IMG_9107.jpeg" alt="" class="w-full h-full object-cover">
+        </section>
+
+        <!-- Form and FAQ Split Layout -->
+         <div class="max-w-x7 mx-auto text-center">
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-light tracking-[0.35em] text-[#111111] uppercase">
+                    ASSISTANCE
+                </h1>
+         </div>
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
+            
+            <!-- Left Column: Contact Form -->
+            <div class="space-y-8">
+                <div>
+                    <h2 class="text-base md:text-lg tracking-widest text-[#111111] uppercase font-light">Get In Touch</h2>
+                    <p class="text-xs text-zinc-500 mt-2 font-light leading-relaxed max-w-md">
+                        Our concierge team is available for personalized assistance regarding orders, sizing, and archival inquiries.
+                    </p>
+                </div>
+
+                <!-- Form Element -->
+                <form class="space-y-6">
+                    <div>
+                        <label class="block text-[9px] tracking-widest text-zinc-500 uppercase font-semibold mb-1">Name</label>
+                        <input type="text" placeholder="Full Name" class="w-full bg-transparent border-b border-zinc-300 py-3 text-xs placeholder-zinc-400 focus:outline-none focus:border-black transition-colors" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-[9px] tracking-widest text-zinc-500 uppercase font-semibold mb-1">Email</label>
+                        <input type="email" placeholder="email@address.com" class="w-full bg-transparent border-b border-zinc-300 py-3 text-xs placeholder-zinc-400 focus:outline-none focus:border-black transition-colors" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-[9px] tracking-widest text-zinc-500 uppercase font-semibold mb-1">Order Number</label>
+                        <input type="text" placeholder="#000000 (Optional)" class="w-full bg-transparent border-b border-zinc-300 py-3 text-xs placeholder-zinc-400 focus:outline-none focus:border-black transition-colors">
+                    </div>
+
+                    <div>
+                        <label class="block text-[9px] tracking-widest text-zinc-500 uppercase font-semibold mb-1">Message</label>
+                        <textarea placeholder="Your inquiry..." rows="3" class="w-full bg-transparent border-b border-zinc-300 py-3 text-xs placeholder-zinc-400 focus:outline-none focus:border-black transition-colors resize-none" required></textarea>
+                    </div>
+
+                    <div class="pt-2">
+                        <button type="submit" class="bg-black hover:bg-zinc-900 text-white text-[9px] tracking-superwide uppercase px-8 py-3.5 font-light transition-colors flex items-center space-x-2">
+                            <span>Submit Inquiry</span>
+                            <span>→</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Right Column: Frequently Asked Questions & Live Chat Card -->
+            <div class="space-y-12">
+                <div>
+                    <h2 class="text-base md:text-lg tracking-widest text-[#111111] uppercase font-light">Frequently Asked Questions</h2>
+                    <p class="text-xs text-zinc-500 mt-2 font-light leading-relaxed">
+                        Common queries for a seamless acquisition experience.
+                    </p>
+                </div>
+
+                <!-- Custom JavaScript Accordion Group -->
+                <div class="border-t border-zinc-200 divide-y divide-zinc-200">
+                    <!-- Delivery Times -->
+                    <div class="py-4">
+                        <button class="flex justify-between items-center w-full py-2 text-left" onclick="toggleFAQ('faq-delivery', 'icon-delivery')">
+                            <span class="text-[10px] tracking-widest uppercase font-medium text-zinc-800">Delivery Times</span>
+                            <span id="icon-delivery" class="text-xs text-zinc-500 transition-transform duration-300">▼</span>
+                        </button>
+                        <div id="faq-delivery" class="hidden mt-2 text-xs text-zinc-500 font-light leading-relaxed">
+                            Domestic shipments transition within 3-5 operational cycles. International routing sequences require roughly 7–12 standard business periods.
+                        </div>
+                    </div>
+
+                    <!-- Size Charts -->
+                    <div class="py-4">
+                        <button class="flex justify-between items-center w-full py-2 text-left" onclick="toggleFAQ('faq-sizes', 'icon-sizes')">
+                            <span class="text-[10px] tracking-widest uppercase font-medium text-zinc-800">Size Charts</span>
+                            <span id="icon-sizes" class="text-xs text-zinc-500 transition-transform duration-300">▼</span>
+                        </button>
+                        <div id="faq-sizes" class="hidden mt-2 text-xs text-zinc-500 font-light leading-relaxed">
+                            Sizing measurements correlate strictly to true geometric dimensions. Please consult our detailed size maps featured inside our catalogs for exact structural fits.
+                        </div>
+                    </div>
+
+                    <!-- Return Policies -->
+                    <div class="py-4">
+                        <button class="flex justify-between items-center w-full py-2 text-left" onclick="toggleFAQ('faq-returns', 'icon-returns')">
+                            <span class="text-[10px] tracking-widest uppercase font-medium text-zinc-800">Return Policies</span>
+                            <span id="icon-returns" class="text-xs text-zinc-500 transition-transform duration-300">▼</span>
+                        </button>
+                        <div id="faq-returns" class="hidden mt-2 text-xs text-zinc-500 font-light leading-relaxed">
+                            Acquisitions may be sent back to our ateliers within a standard 30-day trial period. All tags and original packaging must remain fully intact.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sleek Concierge Help Card -->
+                <div class="bg-zinc-100 p-8 rounded-none border border-zinc-200/50 space-y-4">
+                    <span class="text-[9px] tracking-widest text-zinc-400 uppercase font-semibold block">Live Chat</span>
+                    <h3 class="text-lg md:text-xl font-light text-[#111111] leading-snug">
+                        Need immediate assistance with your archival piece?
+                    </h3>
+                    <!-- Online Status Indicator -->
+                    <div class="flex items-center space-x-2 pt-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span class="text-[9px] tracking-widest text-zinc-500 uppercase font-medium">Concierge Online</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Map Location Area -->
+        <section class="relative w-full aspect-[21/9] md:aspect-[24/8] bg-zinc-200 overflow-hidden items-center">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15763.811053294874!2d7.4511744!3d8.9764941!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0d2679022b5d%3A0xf8eafff7fcc7951b!2sCity%20View%20Estate!5e0!3m2!1sen!2sng!4v1783514017475!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            
+        </section>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-white border-t border-zinc-200 py-10 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
+                
+                <!-- Left Logo -->
+                <div class="text-[11px] font-medium tracking-[0.3em] text-[#111111]">
+                    S T A R S C L O T H I N G
+                </div>
+
+                <!-- Center Secondary Links -->
+                <div class="flex flex-wrap justify-center space-x-6 text-[9px] tracking-superwide text-zinc-500 uppercase">
+                    <a href="#" class="hover:text-black transition-colors">Privacy</a>
+                    <a href="#" class="hover:text-black transition-colors">Terms</a>
+                    <a href="#" class="hover:text-black transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-black transition-colors">Tiktok</a>
+                </div>
+
+                <!-- Right Copyright -->
+                <div class="text-[9px] tracking-widest text-zinc-400 uppercase">
+                    &copy; 2024 STARSCLOTHING. All Rights Reserved.
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vanilla Javascript Interactions -->
+    <script>
+        // Toggle mobile primary header menu
+        const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+        const mobileNavMenu = document.getElementById('mobile-nav-menu');
+        mobileNavToggle.addEventListener('click', () => {
+            mobileNavMenu.classList.toggle('hidden');
+        });
+
+        // Function to toggle individual FAQ items
+        function toggleFAQ(contentId, iconId) {
+            const content = document.getElementById(contentId);
+            const icon = document.getElementById(iconId);
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = "rotate(180deg)";
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = "rotate(0deg)";
+            }
+        }
+    </script>
+</body>
+</html>

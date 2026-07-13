@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STARSCLOTHING | Cosmic Heavyweight Hoodie</title>
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                    },
+                    letterSpacing: {
+                        widest: '0.2em',
+                        superwide: '0.3em',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#f7f7f7] text-[#111111] font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Global Header (Logo centered layout) -->
+    <header class="bg-[#f7f7f7] border-b border-zinc-200 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-3 items-center h-20">
+                
+                <!-- Left: Navigation (Desktop) -->
+                <nav class="hidden lg:flex space-x-6 text-[10px] tracking-superwide uppercase">
+                    <a href="shop.html" class="text-zinc-500 hover:text-black transition-colors">Collections</a>
+                    <a href="shop.html" class="text-zinc-500 hover:text-black transition-colors">Men</a>
+                    <a href="shop.html" class="text-zinc-500 hover:text-black transition-colors">Women</a>
+                    <a href="shop.html" class="text-zinc-500 hover:text-black transition-colors">Accessories</a>
+                </nav>
+
+                <!-- Mobile Left hamburger placeholder -->
+                <div class="lg:hidden">
+                    <button id="mobile-nav-toggle" class="text-zinc-800 hover:text-black" aria-label="Toggle Menu">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Center: Centered Logo -->
+                <div class="text-center justify-self-center">
+                    <a href="index.html" class="text-xs md:text-sm lg:text-base font-semibold tracking-[0.3em] text-black">S T A R S C L O T H I N G</a>
+                </div>
+
+                <!-- Right: Utilities (Search & Icons) -->
+                <div class="flex items-center space-x-4 md:space-x-6 justify-self-end text-zinc-800">
+                    <button class="hover:text-black transition-colors" aria-label="Search">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.602 10.602Z" />
+                        </svg>
+                    </button>
+                    <a id="cartCount" href="cart.html" class="relative hover:opacity-70 transition-opacity" aria-label="Shopping Bag">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1,0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0,1-1.12-1.243l1.264-12A1.125 1.125 0 0,1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1,1-.75 0 .375.375 0 0,1 .75 0Zm7.5 0a.375.375 0 1,1-.75 0 .375.375 0 0,1 .75 0Z" />
+                        </svg>
+                        <span  id="cartCount" class="absolute -top-6 -right-3 text-white bg-red-500 rounded-full text-xs px-1 py-1"> 0 </span>
+                    </a>
+                    <a  id="cartCount" href="cart.html" class="hover:text-black transition-colors relative" aria-label="Shopping Bag">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1,0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0,1-1.12-1.243l1.264-12A1.125 1.125 0 0,1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1,1-.75 0 .375.375 0 0,1 .75 0Zm7.5 0a.375.375 0 1,1-.75 0 .375.375 0 0,1 .75 0Z" />
+                        </svg>
+                        <span id="cartCount" class="absolute -top-1.5 -right-2  bg-red-500 text-white text-[8px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-semibold">0</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobile-nav-menu" class="hidden lg:hidden bg-[#f7f7f7] border-b border-zinc-200 px-6 py-4 space-y-3">
+            <a href="shop.html" class="block text-[10px] tracking-superwide uppercase text-black font-semibold">Collections</a>
+            <a href="shop.html" class="block text-[10px] tracking-superwide uppercase text-zinc-500">Men</a>
+            <a href="shop.html" class="block text-[10px] tracking-superwide uppercase text-zinc-500">Women</a>
+            <a href="shop.html" class="block text-[10px] tracking-superwide uppercase text-zinc-500">Accessories</a>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+            
+            <!-- LEFT COLUMN: Product Images Gallery -->
+            <div class="lg:col-span-7 space-y-4">
+                <!-- Large Active Image -->
+                <div class="aspect-[4/5] bg-neutral-100 overflow-hidden">
+                    <img id="main-product-image" src="assets/images/c,..jpg" alt="Cosmic Heavyweight Hoodie - Active view" class="w-full h-full object-cover transition-opacity duration-300">
+                </div>
+                <!-- Thumbnail Row -->
+                <div class="grid grid-cols-4 gap-3">
+                    <button class="thumbnail-btn aspect-square border-2 border-black overflow-hidden" onclick="changeImage('assets/images/firefly-1.png', this)">
+                        <img  src="assets/images/firefly-1.png" alt="View 1" class="w-full h-full object-cover">
+                    </button>
+                    <button class="thumbnail-btn aspect-square border border-transparent overflow-hidden hover:border-zinc-300" onclick="changeImage('assets/images/c,.3.jpg', this)">
+                        <img src="assets/images/c,.3.jpg" alt="View 2" class="w-full h-full object-cover">
+                    </button>
+                    <button class="thumbnail-btn aspect-square border border-transparent overflow-hidden hover:border-zinc-300" onclick="changeImage('assets/images/c,..jpg', this)">
+                        <img src="assets/images/c,..jpg" alt="View 3" class="w-full h-full object-cover">
+                    </button>
+                    <button class="thumbnail-btn aspect-square border border-transparent overflow-hidden hover:border-zinc-300" onclick="changeImage('assets/images/IMG_2701.jpg', this)">
+                        <img src="assets/images/IMG_2701.jpg" alt="View 4" class="w-full h-full object-cover">
+                    </button>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Configuration & Purchase Details -->
+            <div class="lg:col-span-5 space-y-8">
+                <div>
+                    <!-- Category context -->
+                    <span class="text-[9px] tracking-superwide text-zinc-400 uppercase font-medium">Streetwear</span>
+                    <!-- Product title -->
+                    <h1 id="productName" class="text-2xl md:text-3xl font-light text-[#111111] mt-1 leading-tight tracking-wide">
+                        Cosmic Heavyweight Hoodie
+                    </h1>
+                    <!-- Price label -->
+                    <p id="productPrice" class="text-lg font-light text-zinc-800 mt-2">$85.00</p>
+                </div>
+
+                <!-- Product short introduction text -->
+                <p id="productDescription" class="text-xs text-zinc-600 leading-relaxed font-light">
+                    A premium, ultra-dense 500GSM cotton fleece hoodie with dropped shoulders and a boxy silhouette. Engineered for the modern urban landscape.
+                </p>
+
+                <!-- Color Options Selection -->
+                <div class="space-y-3">
+                    <span class="text-[9px] tracking-superwide text-zinc-500 uppercase font-semibold">Color: Black</span>
+                    <div class="flex space-x-3.5">
+                        <button class="w-6 h-6 rounded-full bg-black ring-2 ring-offset-2 ring-black" aria-label="Color Black"></button>
+                        <button class="w-6 h-6 rounded-full bg-zinc-400 hover:scale-105 transition-transform" aria-label="Color Charcoal"></button>
+                        <button class="w-6 h-6 rounded-full bg-stone-200 hover:scale-105 transition-transform" aria-label="Color White"></button>
+                    </div>
+                </div>
+
+                <!-- Size Options Selectors Grid -->
+                <div class="space-y-3">
+                    <span class="text-[9px] tracking-superwide text-zinc-500 uppercase font-semibold">Select Size</span>
+                    <div class="grid grid-cols-4 gap-2.5 max-w-sm">
+                        <button class="bg-black border border-black text-white py-3 text-[10px] tracking-widest uppercase font-medium">S</button>
+                        <button class="border border-zinc-200 bg-white hover:border-black py-3 text-[10px] tracking-widest uppercase transition-colors">M</button>
+                        <button class="border border-zinc-200 bg-white hover:border-black py-3 text-[10px] tracking-widest uppercase transition-colors">L</button>
+                        <button class="border border-zinc-200 bg-white hover:border-black py-3 text-[10px] tracking-widest uppercase transition-colors">XL</button>
+                    </div>
+                </div>
+
+                <!-- Call to Action (CTA) Button -->
+                <div class="pt-2">
+                    <button id="addToCart" class="w-full bg-black text-white hover:bg-zinc-900 transition-colors py-4 text-[10px] tracking-superwide uppercase font-medium">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <!-- Product Specifications - Accordion Section -->
+                <div class="border-t border-zinc-200 pt-2 space-y-4">
+                    <!-- Detail Block 1 -->
+                    <div class="border-b border-zinc-200 pb-4">
+                        <button class="flex justify-between items-center w-full py-2 text-left" onclick="toggleAccordion('details-content', 'details-icon')">
+                            <span class="text-[10px] tracking-superwide uppercase font-semibold text-[#111111]">Product Details</span>
+                            <span id="details-icon" class="text-sm font-light text-zinc-500">+</span>
+                        </button>
+                        <div id="details-content" class="hidden mt-2 text-xs text-zinc-500 leading-relaxed font-light space-y-2">
+                            <p>• 100% organic cotton loopback fleece fabric construction.</p>
+                            <p>• Ultra-thick double-lined hood sans drawcord parameters for modern aesthetics.</p>
+                            <p>• Pre-shrunk processes completed for sustained size maintenance.</p>
+                        </div>
+                    </div>
+
+                    <!-- Detail Block 2 -->
+                    <div class="border-b border-zinc-200 pb-4">
+                        <button class="flex justify-between items-center w-full py-2 text-left" onclick="toggleAccordion('shipping-content', 'shipping-icon')">
+                            <span class="text-[10px] tracking-superwide uppercase font-semibold text-[#111111]">Shipping & Returns</span>
+                            <span id="shipping-icon" class="text-sm font-light text-zinc-500">+</span>
+                        </button>
+                        <div id="shipping-content" class="hidden mt-2 text-xs text-zinc-500 leading-relaxed font-light">
+                            <p>Standard flat-rate shipping methods executed globally. Free transit services activated for orders surpassing $150. Returns accepted within a standard 30-day return window.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Section Break / Recommended Block Header -->
+        <section class="mt-32">
+            <div class="text-center mb-12">
+                <h2 class="text-xl md:text-2xl font-light tracking-widest text-[#111111] uppercase">Recommended Products</h2>
+            </div>
+
+            <!-- Responsive 4-Column Recommendation Grid -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-12">
+                
+                <!-- Card 1 -->
+                <div>
+                    <div class="aspect-[3/4] bg-neutral-100 overflow-hidden mb-3">
+                        <img src="assets/images/c,.5.jpg" alt="Modular Shell Jacket" class="w-full h-full object-cover">
+                    </div>
+                    <div class="space-y-1">
+                        <h3 class="text-[10px] tracking-widest text-[#111111] uppercase font-light">Modular Shell Jacket</h3>
+                        <p class="text-[10px] tracking-widest text-zinc-500 font-light">$185.00</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div>
+                    <div class="aspect-[3/4] bg-neutral-100 overflow-hidden mb-3">
+                        <img src="assets/images/firefly-1.png" alt="Architectural Denim" class="w-full h-full object-cover">
+                    </div>
+                    <div class="space-y-1">
+                        <h3 class="text-[10px] tracking-widest text-[#111111] uppercase font-light">Architectural Denim</h3>
+                        <p class="text-[10px] tracking-widest text-zinc-500 font-light">$120.00</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div>
+                    <div class="aspect-[3/4] bg-neutral-100 overflow-hidden mb-3">
+                        <img src="assets/images/IMG_2696.jpg" alt="Standard Wool Overcoat" class="w-full h-full object-cover">
+                    </div>
+                    <div class="space-y-1">
+                        <h3 class="text-[10px] tracking-widest text-[#111111] uppercase font-light">Standard Wool Overcoat</h3>
+                        <p class="text-[10px] tracking-widest text-zinc-500 font-light">$310.00</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div>
+                    <div class="aspect-[3/4] bg-neutral-100 overflow-hidden mb-3">
+                        <img src="assets/images/IMG_2699.jpg" alt="Brutal Suede Boots" class="w-full h-full object-cover">
+                    </div>
+                    <div class="space-y-1">
+                        <h3 class="text-[10px] tracking-widest text-[#111111] uppercase font-light">Brutal Suede Boots</h3>
+                        <p class="text-[10px] tracking-widest text-zinc-500 font-light">$245.00</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Editorial Footer -->
+    <footer class="bg-white border-t border-zinc-200 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                <!-- Left: Logo & Copyright -->
+                <div class="space-y-3 text-center md:text-left">
+                    <span class="text-xs font-semibold tracking-[0.3em] text-black block">S T A R S C L O T H I N G</span>
+                    <span class="text-[8px] tracking-widest text-zinc-400 uppercase block">&copy; 2024 STARSCLOTHING. ALL RIGHTS RESERVED.</span>
+                </div>
+
+                <!-- Center: Secondary Links -->
+                <div class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-[9px] tracking-superwide uppercase text-zinc-500">
+                    <a href="#" class="hover:text-black transition-colors">Shipping</a>
+                    <a href="#" class="hover:text-black transition-colors">Returns</a>
+                    <a href="#" class="hover:text-black transition-colors">Sustainability</a>
+                    <a href="#" class="hover:text-black transition-colors">Stores</a>
+                </div>
+
+                <!-- Right: Social Connections -->
+                <div class="flex items-center space-x-4 text-zinc-700">
+                    <a href="#" class="hover:text-black transition-colors" aria-label="Country Selector">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9s2.015-9 4.5-9m0 0c2.485 0 4.5 4.03 4.5 9s-2.015 9-4.5 9" />
+                        </svg>
+                    </a>
+                    <a href="#" class="hover:text-black transition-colors" aria-label="Instagram">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JS Functionality -->
+    <script>
+        // Toggle mobile header navigation
+        const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+        const mobileNavMenu = document.getElementById('mobile-nav-menu');
+        mobileNavToggle.addEventListener('click', () => {
+            mobileNavMenu.classList.toggle('hidden');
+        });
+
+        // Function to switch main gallery image based on selected thumbnail
+        function changeImage(imageSrc, thumbnailEl) {
+            const mainImg = document.getElementById('main-product-image');
+            mainImg.style.opacity = 0;
+            
+            setTimeout(() => {
+                mainImg.src = imageSrc;
+                mainImg.style.opacity = 1;
+            }, 150);
+
+            // Reset active styles on thumbnail borders
+            document.querySelectorAll('.thumbnail-btn').forEach(btn => {
+                btn.classList.remove('border-black');
+                btn.classList.add('border-transparent');
+            });
+            thumbnailEl.classList.remove('border-transparent');
+            thumbnailEl.classList.add('border-black', 'border-2');
+        }
+
+        // Accordion toggle function
+        function toggleAccordion(contentId, iconId) {
+            const content = document.getElementById(contentId);
+            const icon = document.getElementById(iconId);
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.textContent = '−';
+            } else {
+                content.classList.add('hidden');
+                icon.textContent = '+';
+            }
+        }
+    </script>
+
+    <script src="product.js"></script>
+
+
+
+</body>
+</html>

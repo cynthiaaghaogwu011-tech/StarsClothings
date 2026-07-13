@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between">
+
+            <a href="index.html" class="text-2xl font-bold">
+                My Store
+            </a>
+
+            <a href="cart.html" class="font-semibold">
+                Back to Cart
+            </a>
+
+        </div>
+    </nav>
+
+    <!-- Checkout -->
+    <section class="max-w-7xl mx-auto p-6">
+
+        <h1 class="text-4xl font-bold mb-10">
+            Checkout
+        </h1>
+
+        <div class="grid lg:grid-cols-2 gap-10">
+
+            <!-- Customer Information -->
+            <div class="bg-white rounded-xl shadow p-8">
+
+                <h2 class="text-2xl font-semibold mb-6">
+                    Billing Details
+                </h2>
+
+                <form id="checkoutForm" class="space-y-5">
+
+                    <input
+                        id="fullName"
+                        type="text"
+                        placeholder="Full Name"
+                        class="w-full border rounded-lg p-3"
+                        required
+                    >
+
+                    <input
+                        id="email"
+                        type="email"
+                        placeholder="Email Address"
+                        class="w-full border rounded-lg p-3"
+                        required
+                    >
+
+                    <input
+                        id="phone"
+                        type="tel"
+                        placeholder="Phone Number"
+                        class="w-full border rounded-lg p-3"
+                        required
+                    >
+
+                    <input
+                        id="address"
+                        type="text"
+                        placeholder="Street Address"
+                        class="w-full border rounded-lg p-3"
+                        required
+                    >
+
+                    <input
+                        id="city"
+                        type="text"
+                        placeholder="City"
+                        class="w-full border rounded-lg p-3"
+                        required
+                    >
+
+                    <input
+                        id="state"
+                        type="text"
+                        placeholder="State"
+                        class="w-full border rounded-lg p-3"
+                        required
+                    >
+
+                    <button id="placeOrderBtn"
+                        type="button"
+                        class="w-full bg-black text-white py-4 rounded-lg hover:bg-gray-800 transition">
+                        Place Order
+                    </button>
+
+                </form>
+
+            </div>
+
+            <!-- Order Summary -->
+            <div class="bg-white rounded-xl shadow p-8">
+
+                <h2 class="text-2xl font-semibold mb-6">
+                    Order Summary
+                </h2>
+
+                <div id="checkoutItems" class="space-y-5">
+
+                </div>
+
+                <hr class="my-6">
+
+                <div class="flex justify-between text-xl font-bold">
+
+                    <span>Total</span>
+
+                    <span id="checkoutTotal">$0.00</span>
+
+                </div>
+
+            </div>
+            
+        </div>
+
+    </section>
+    <script src="cart.js"></script>
+    <script src="checkout.js"></script>
+    
+
+</body>
+</html>
