@@ -69,12 +69,7 @@
                         </svg>
                         <span  id="cartCount" class="absolute -top-6 -right-3 text-white bg-red-500 rounded-full text-xs px-1 py-1"> 0 </span>
                     </a>
-                    <a  id="cartCount" href="cart.html" class="hover:text-black transition-colors relative" aria-label="Shopping Bag">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1,0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0,1-1.12-1.243l1.264-12A1.125 1.125 0 0,1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1,1-.75 0 .375.375 0 0,1 .75 0Zm7.5 0a.375.375 0 1,1-.75 0 .375.375 0 0,1 .75 0Z" />
-                        </svg>
-                        <span id="cartCount" class="absolute -top-1.5 -right-2  bg-red-500 text-white text-[8px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-semibold">0</span>
-                    </a>
+                    
                 </div>
 
             </div>
@@ -83,7 +78,6 @@
         <!-- Mobile Navigation Menu Dropdown -->
         <div id="mobile-nav-menu" class="hidden lg:hidden bg-[#f7f7f7] border-b border-zinc-200 px-6 py-4 space-y-3">
             <a href="shop.html" class="block text-[10px] tracking-superwide uppercase text-black font-semibold">Collections</a>
-            <a href="shop.html" class="block text-[10px] tracking-superwide uppercase text-zinc-500">Men</a>
             <a href="shop.html" class="block text-[10px] tracking-superwide uppercase text-zinc-500">Women</a>
             <a href="shop.html" class="block text-[10px] tracking-superwide uppercase text-zinc-500">Accessories</a>
         </div>
@@ -96,23 +90,23 @@
             <!-- LEFT COLUMN: Product Images Gallery -->
             <div class="lg:col-span-7 space-y-4">
                 <!-- Large Active Image -->
-                <div class="aspect-[4/5] bg-neutral-100 overflow-hidden">
-                    <img id="main-product-image" src="assets/images/c,..jpg" alt="Cosmic Heavyweight Hoodie - Active view" class="w-full h-full object-cover transition-opacity duration-300">
-                </div>
+                <a href="product.html?id=1">
+                    <div class="aspect-[4/5] bg-neutral-100 overflow-hidden">
+                        <img id="main-product-image" src="assets/images/IMG_3160.jpg" alt="Red Dress - Active view" class="w-full h-full object-cover transition-opacity duration-300">
+                    </div>
+                </a>
                 <!-- Thumbnail Row -->
                 <div class="grid grid-cols-4 gap-3">
-                    <button class="thumbnail-btn aspect-square border-2 border-black overflow-hidden" onclick="changeImage('assets/images/firefly-1.png', this)">
-                        <img  src="assets/images/firefly-1.png" alt="View 1" class="w-full h-full object-cover">
+                    <button class="thumbnail-btn aspect-square border-2 border-black overflow-hidden" onclick="changeImage('assets/images/IMG_3161.jpg', this)">
+                        <img  src="assets/images/IMG_3161.jpg" alt="View 1" class="w-full h-full object-cover">
                     </button>
-                    <button class="thumbnail-btn aspect-square border border-transparent overflow-hidden hover:border-zinc-300" onclick="changeImage('assets/images/c,.3.jpg', this)">
-                        <img src="assets/images/c,.3.jpg" alt="View 2" class="w-full h-full object-cover">
+                    <button class="thumbnail-btn aspect-square border border-transparent overflow-hidden hover:border-zinc-300" onclick="changeImage('assets/images/IMG_3162.jpg', this)">
+                        <img src="assets/images/IMG_3162.jpg" alt="View 2" class="w-full h-full object-cover">
                     </button>
-                    <button class="thumbnail-btn aspect-square border border-transparent overflow-hidden hover:border-zinc-300" onclick="changeImage('assets/images/c,..jpg', this)">
-                        <img src="assets/images/c,..jpg" alt="View 3" class="w-full h-full object-cover">
+                    <button class="thumbnail-btn aspect-square border border-transparent overflow-hidden hover:border-zinc-300" onclick="changeImage('assets/images/IMG_3160.jpg', this)">
+                        <img src="assets/images/IMG_3160.jpg" alt="View 3" class="w-full h-full object-cover">
                     </button>
-                    <button class="thumbnail-btn aspect-square border border-transparent overflow-hidden hover:border-zinc-300" onclick="changeImage('assets/images/IMG_2701.jpg', this)">
-                        <img src="assets/images/IMG_2701.jpg" alt="View 4" class="w-full h-full object-cover">
-                    </button>
+
                 </div>
             </div>
 
@@ -123,7 +117,7 @@
                     <span class="text-[9px] tracking-superwide text-zinc-400 uppercase font-medium">Streetwear</span>
                     <!-- Product title -->
                     <h1 id="productName" class="text-2xl md:text-3xl font-light text-[#111111] mt-1 leading-tight tracking-wide">
-                        Cosmic Heavyweight Hoodie
+                        Red Dress
                     </h1>
                     <!-- Price label -->
                     <p id="productPrice" class="text-lg font-light text-zinc-800 mt-2">$85.00</p>
@@ -203,11 +197,13 @@
                 
                 <!-- Card 1 -->
                 <div>
-                    <div class="aspect-[3/4] bg-neutral-100 overflow-hidden mb-3">
-                        <img src="assets/images/c,.5.jpg" alt="Modular Shell Jacket" class="w-full h-full object-cover">
-                    </div>
+                    <a href="product.html?id=10">
+                        <div class="aspect-[3/4] bg-neutral-100 overflow-hidden mb-3">
+                            <img src="assets/images/IMG_3197.jpg" alt="Black Lace Dress" class="w-full h-full object-cover">
+                        </div>
+                    </a>
                     <div class="space-y-1">
-                        <h3 class="text-[10px] tracking-widest text-[#111111] uppercase font-light">Modular Shell Jacket</h3>
+                        <h3 class="text-[10px] tracking-widest text-[#111111] uppercase font-light">Caramel Dress</h3>
                         <p class="text-[10px] tracking-widest text-zinc-500 font-light">$185.00</p>
                     </div>
                 </div>
@@ -215,7 +211,7 @@
                 <!-- Card 2 -->
                 <div>
                     <div class="aspect-[3/4] bg-neutral-100 overflow-hidden mb-3">
-                        <img src="assets/images/firefly-1.png" alt="Architectural Denim" class="w-full h-full object-cover">
+                        <img src="assets/images/IMG_2706.jpg" alt="Architectural Denim" class="w-full h-full object-cover">
                     </div>
                     <div class="space-y-1">
                         <h3 class="text-[10px] tracking-widest text-[#111111] uppercase font-light">Architectural Denim</h3>
@@ -225,12 +221,14 @@
 
                 <!-- Card 3 -->
                 <div>
-                    <div class="aspect-[3/4] bg-neutral-100 overflow-hidden mb-3">
-                        <img src="assets/images/IMG_2696.jpg" alt="Standard Wool Overcoat" class="w-full h-full object-cover">
-                    </div>
+                    <a href="product.html?id=5">
+                        <div class="aspect-[3/4] bg-neutral-100 overflow-hidden mb-3">
+                            <img src="assets/images/IMG_2696.jpg" alt="Black Silhouette Dinner Dress" class="w-full h-full object-cover">
+                        </div>
+                    </a>
                     <div class="space-y-1">
-                        <h3 class="text-[10px] tracking-widest text-[#111111] uppercase font-light">Standard Wool Overcoat</h3>
-                        <p class="text-[10px] tracking-widest text-zinc-500 font-light">$310.00</p>
+                        <h3 class="text-[10px] tracking-widest text-[#111111] uppercase font-light">Sophia Dress</h3>
+                        <p class="text-[10px] tracking-widest text-zinc-500 font-light">$380.00</p>
                     </div>
                 </div>
 

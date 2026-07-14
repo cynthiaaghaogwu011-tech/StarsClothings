@@ -4,21 +4,21 @@ const products = [
         id: 1,
         name: "IDARA DRESS",
         price: 240,
-        image: "assets/images/firefly-1.png",
+        image: "assets/images/IMG_3160.jpg",
         description: ""
     },
     {
         id: 2,
         name: "BEMISE DRESS",
         price: 185,
-        image: "assets/images/c,.3.jpg",
+        image: "assets/images/IMG_3207.jpg",
         description: ""
     },
     {
         id: 3,
         name: "TIFE DRESS",
         price: 520,
-        image: "assets/images/c,..jpg",
+        image: "assets/images/IMG_3146.jpg",
         description: ""
     },
     {
@@ -39,77 +39,77 @@ const products = [
         id: 6,
         name: "ARIELLA DRESS",
         price: 310,
-        image: "assets/images/m,.4.png",
+        image: "assets/images/esther.png",
         description: ""
     },
     {
         id: 7,
         name: "ACHALUGO AMI",
         price: 150,
-        image: "assets/images/m,..jpeg",
+        image: "assets/images/esther2.png",
         description: ""
     },
     {
         id: 8,
         name: "BELARA DRESS",
         price: 65,
-        image: "assets/images/m,.1.png",
+        image: "assets/images/IMG_3156.jpg",
         description: ""
     },
     {
         id: 9,
         name: "YUVA DRESS",
         price: 240,
-        image: "assets/images/c,.4.jpeg",
+        image: "assets/images/IMG_3224.PNG",
         description: ""
     },
     {
         id: 10,
         name: "CARAMEL DRESS",
         price: 185,
-        image: "assets/images/c,.1.jpg",
+        image: "assets/images/IMG_3195.jpg",
         description: ""
     },
     {
         id: 11,
         name: "BADUA DRESS",
         price: 520,
-        image: "assets/images/IMG_2697.jpg",
+        image: "assets/images/IMG_3167.jpg",
         description: ""
     },
     {
         id: 12,
         name: "EVA DRESS",
         price: 210,
-        image: "assets/images/ajo1.jpg",
+        image: "assets/images/60F332C1-8A61-4B81-AE60-2811E13D97AB.PNG",
         description: ""
     },
     {
         id: 13,
         name: "SHOLA DRESS",
         price: 380,
-        image: "assets/images/ajo2.jpeg",
+        image: "assets/images/IMG_3199.jpg",
         description: ""
     },
     {
         id: 14,
         name: "GENEVA DRESS",
         price: 310,
-        image: "assets/images/img-7.jpg",
+        image: "assets/images/IMG_3157.jpg",
         description: ""
     },
     {
         id: 15,
         name: "AMARA DRESS",
         price: 155,
-        image: "assets/images/IMG_2699.jpg",
+        image: "assets/images/IMG_3187.jpg",
         description: ""
     },
     {
         id: 16,
         name: "IMA DRESS",
         price: 65,
-        image: "assets/images/IMG_2706.jpg",
+        image: "assets/images/IMG_3192.jpg",
         description: ""
     }
 ];
