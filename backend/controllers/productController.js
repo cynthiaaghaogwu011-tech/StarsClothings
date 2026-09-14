@@ -13,6 +13,9 @@ const getProducts = async (req, res) => {
         });
     } catch (error) {
         console.error("GET PRODUCTS ERROR:", error);
+        if (error.name === "CastError") {
+            return res.status(400).json({ message: "Invalid category ID", error: error.message})
+        }
         res.status(500).json({
             message: "Failed to retrieve products.",
             error: error.message
@@ -53,6 +56,9 @@ const getProductById = async (req, res) => {
         });
     } catch (error) {
         console.error("GET PRODUCT BY ID ERROR:", error);
+        if (error.name === "CastError") {
+            return res.status(400).json({ message: "Invalid product ID", error: error.message });
+        }
         res.status(500).json({
             message: "Failed to retrieve product.",
             error: error.message
@@ -74,6 +80,9 @@ const updateProduct = async (req, res) => {
         });
     } catch (error) {
         console.error("UPDATE PRODUCT ERROR:", error);
+        if (error.name === "CastError" || error.name === "ValidationError") {
+            return res.status(400).json({ message: "Invalid or missing information provided", error: error.message });
+        }
         res.status(500).json({
             message: "Failed to update product.",
             error: error.message
@@ -94,6 +103,9 @@ const deleteProduct = async (req, res) => {
         })
     } catch (error) {
         console.error("DELETE PRODUCT ERROR: ", error);
+        if (error.name === "CastError") {
+            return res.status(400).json({ message: "Invalid product ID", error: error.message});
+        }
         res.status(500).json({
             message: "Failed to delete product.",
             error: error.message
