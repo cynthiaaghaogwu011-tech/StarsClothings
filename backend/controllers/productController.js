@@ -6,7 +6,16 @@ const getProducts = async (req, res) => {
         if (req.query.category) {
             filter.category = req.query.category;
         }
-        const products = await Product.find(filter);
+        if (req.query.search) {
+            filter.name = { $regex: req.query.search, $options: 'i'}; //match this field against whatever user types not exact value. Case insensitive search for product name.
+        }
+        let sort = {};
+        if (req.query.sort === "price_asc") {
+            sort.price = 1; //ascending order
+        } else if (req.query.sort === "price_desc") {
+            sort.price = -1; //descending order.
+        }
+        const products = await Product.find(filter).sort(sort);
         res.status(200).json({
             message: "Products retrieved successfully!",
             data: products
