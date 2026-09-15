@@ -1,20 +1,16 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const session = require('express-session');
 const connectDB = require('./config/db');
 const productRoutes = require('./routes/productRoutes');
+const adminRoutes = require('./routes/adminRoutes.js');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(session({
-    secret: 'your-secret-key',
-    resave: false,
-    saveUninitialized: false
-}));
-app.use('/api/products', productRoutes)
 
+app.use('/api/products', productRoutes);
+app.use('/api/admin', adminRoutes);
 const PORT = process.env.PORT || 3000;
 
 const startServer = async () => {
