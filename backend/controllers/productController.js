@@ -15,7 +15,7 @@ const getProducts = async (req, res) => {
         } else if (req.query.sort === "price_desc") {
             sort.price = -1; //descending order.
         }
-        const products = await Product.find(filter).sort(sort);
+        const products = await Product.find(filter).sort(sort).populate('createdBy', 'username');
         res.status(200).json({
             message: "Products retrieved successfully!",
             data: products
@@ -34,7 +34,7 @@ const getProducts = async (req, res) => {
 
 const createProduct = async (req, res) => {
     try {
-        const product = await Product.create(req.body);
+        const product = await Product.create({...req.body, createdBy: req.admin.id});
         res.status(201).json({
             message: "Product created successfully!",
             data: product
@@ -53,7 +53,7 @@ const createProduct = async (req, res) => {
 
 const getProductById = async (req, res) => {
     try {
-        const product = await Product.findById(req.params.id);
+        const product = await Product.findById(req.params.id).populate('createdBy', 'username');
         if (!product) {
             return res.status(404).json({
                 message: "Product not found."
