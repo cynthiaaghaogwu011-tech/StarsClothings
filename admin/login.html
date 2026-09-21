@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin — STARSCLOTHING</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: "#0a0a0b",
+          surface: "#151517",
+          line: "#2a2a2c",
+          muted: "#8c8a85",
+          cream: "#f2f0ea",
+          gold: "#c9a24b",
+          error: "#e2574c"
+        },
+        fontFamily: {
+          serif: ["Fraunces", "serif"],
+          sans: ["Inter", "sans-serif"]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body{ background: radial-gradient(120% 90% at 50% 0%, #151517 0%, #0a0a0b 60%); }
+  .field-input:focus{ border-color:#c9a24b; }
+</style>
+</head>
+<body class="min-h-screen flex items-center justify-center px-5 py-8 text-cream font-sans">
+
+  <div class="w-full max-w-sm">
+    <div class="text-center mb-14">
+      <h1 class="font-serif font-light text-3xl md:text-4xl tracking-[0.28em] pl-[0.28em]">STARS</h1>
+      <p class="text-[11px] tracking-[0.18em] text-muted lowercase mt-2">clothing — admin access</p>
+    </div>
+    <form id="loginForm" novalidate class="flex flex-col gap-7">
+      <div>
+        <label for="username" class="block text-xs tracking-wide text-muted mb-2">Username</label>
+        <input type="username" id="username" name="username" required autocomplete="username" placeholder="you@starsclothing.com" class="field-input w-full bg-transparent border-0 border-b border-line text-cream text-[15px] pb-2.5 outline-none placeholder:text-[#4d4c49] focus:ring-0 transition-colors" />
+      </div>
+      <div>
+        <label for="password" class="block text-xs tracking-wide text-muted mb-2">Password</label>
+        <input type="password" id="password" name="password" required autocomplete="current-password" placeholder="••••••••" class="field-input w-full bg-transparent border-0 border-b border-line text-cream text-[15px] pb-2.5 outline-none placeholder:text-[#4d4c49] focus:ring-0 transition-colors" />
+      </div>
+      <p id="errorMsg" role="alert" class="hidden text-[13px] text-error leading-relaxed -mt-2"></p>
+      <button type="submit" id="submitBtn" class="mt-2 border border-gold text-gold text-xs tracking-[0.16em] lowercase py-3.5 transition-colors hover:bg-gold hover:text-ink disabled:opacity-50 disabled:cursor-default disabled:hover:bg-transparent disabled:hover:text-gold">
+        Sign in
+      </button>
+    </form>
+
+    <hr class="border-t border-line mt-10" />
+    <a href="/" class="block text-center mt-5 text-xs tracking-wide text-muted hover:text-cream transition-colors">Back to site</a>
+  </div>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    form.addEventListener('submit', async(event) => {
+      event.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const submitBtn = document.getElementById('submitBtn');
+      try{
+        submitBtn.textContent = "Signing in ...";
+        submitBtn.disabled = true;
+        const response = await fetch('http://localhost:3000/api/admin/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ username, password })
+        });
+        const data = await response.json();
+        if (!response.ok) {
+          document.getElementById('errorMsg').textContent = data.message;
+          document.getElementById('errorMsg').classList.remove('hidden');
+          return;
+        }
+
+        localStorage.setItem('adminToken', data.token);
+        window.location.href = 'admin-dashboard.html';
+      } catch (error) {
+        console.error('LOGIN ERROR:', error);
+      }
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Sign in"
+    });
+  </script>
+</body>
+</html>

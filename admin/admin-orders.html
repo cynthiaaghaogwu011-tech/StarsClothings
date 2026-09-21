@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="device-device, initial-scale=1.0">
+    <title>starsClothing | Order Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: { 950: '#020617', 900: '#0f172a' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#09090b] text-zinc-400 font-sans antialiased flex min-h-screen">
+
+    <!-- 1. Left Sidebar -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-brand-950 border-r border-zinc flex flex-col justify-between transform -translate-x-full lg:translate-x-0 lg:static transition-transform duration-300 ease-in-out">
+        <div class="flex flex-col">
+            <!-- Brand Area -->
+            <div class="h-16 px-6 border-b border-brand-border flex items-center justify-between">
+                <span class="font-mono text-sm font-bold tracking-wider uppercase text-white">CUA ADMIN</span>
+                <button onclick="toggleSidebar()" class="lg:hidden text-brand-textMuted hover:text-white">
+                    <!-- Icon: Close 'X' -->
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <nav class="p-4 space-y-1 mt-4">
+                <a href="admin-dashboard.html" class="flex items-center space-x-3 text-white bg-zinc-900 px-4 py-3 rounded-lg text-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="admin-products.html" class="flex items-center space-x-3 text-zinc-500 hover:text-white px-4 py-3 transition-all text-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                    <span>Products</span>
+                </a>
+                <a href="admin-orders.html" class="flex items-center space-x-3 text-zinc-500 hover:text-white px-4 py-3 transition-all text-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    <span>Orders</span>
+                </a>
+                <a href="admin-customers.html" class="flex items-center space-x-3 text-zinc-500 hover:text-white px-4 py-3 transition-all text-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <span>Customers</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="p-4 border-t border-zinc-800">
+            <a href="#" class="flex items-center space-x-3 text-zinc-500 hover:text-red-400 px-4 py-3 transition-all text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 lg:ml-64">
+        <!-- TOP BAR -->
+        <header class="h-20 border-b border-zinc-800 flex items-center justify-between px-8 bg-brand-950/50">
+            <!-- Hamburger Menu Trigger (Mobile only) -->
+                <button onclick="toggleSidebar()" class="lg:hidden text-brand-textMuted hover:text-white">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            <div class="flex items-center space-x-2">
+                <span class="text-zinc-500 text-xs uppercase tracking-widest">Logistics</span>
+                <span class="text-zinc-700">/</span>
+                <span class="text-white text-xs uppercase tracking-widest font-medium">Order History</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-zinc-400 hover:text-white transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+                </button>
+                <div class="w-8 h-8 rounded-full bg-zinc-800 border border-zinc-700"></div>
+            </div>
+        </header>
+
+        <div class="p-8 space-y-8">
+            
+            <!-- ORDER METRICS -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-xl">
+                    <p class="text-xs font-medium text-zinc-500 uppercase tracking-widest">Pending Shipments</p>
+                    <h3 class="text-3xl font-bold text-amber-500 mt-2">24</h3>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-xl">
+                    <p class="text-xs font-medium text-zinc-500 uppercase tracking-widest">Completed Today</p>
+                    <h3 class="text-3xl font-bold text-white mt-2">12</h3>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-xl">
+                    <p class="text-xs font-medium text-zinc-500 uppercase tracking-widest">Revenue (Last 7 Days)</p>
+                    <h3 class="text-3xl font-bold text-emerald-500 mt-2">$3,840.00</h3>
+                </div>
+            </div>
+
+            <!-- ORDER TABLE -->
+            <div class="bg-zinc-900/20 border border-zinc-800 rounded-xl overflow-hidden">
+                <div class="p-6 border-b border-zinc-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <h4 class="text-white font-medium">Transaction Log</h4>
+                    <div class="flex space-x-3">
+                        <input type="text" placeholder="Search Order ID..." class="bg-zinc-900 border border-zinc-800 text-xs rounded-md py-2 px-4 text-white focus:outline-none focus:border-zinc-600 w-full md:w-64">
+                        <button class="bg-zinc-800 text-zinc-200 text-xs px-4 py-2 rounded hover:bg-zinc-700 transition-colors">Export CSV</button>
+                    </div>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm">
+                        <thead>
+                            <tr class="text-zinc-500 text-[10px] uppercase tracking-[0.2em] bg-zinc-900/50">
+                                <th class="px-6 py-4 font-semibold">Order ID</th>
+                                <th class="px-6 py-4 font-semibold">Date</th>
+                                <th class="px-6 py-4 font-semibold">Customer</th>
+                                <th class="px-6 py-4 font-semibold">Total</th>
+                                <th class="px-6 py-4 font-semibold">Status</th>
+                                <th class="px-6 py-4 font-semibold text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-zinc-800">
+                            <!-- Order 1 -->
+                            <tr class="hover:bg-zinc-800/20 transition-colors">
+                                <td class="px-6 py-4 text-white font-mono text-xs">#ORD-7721</td>
+                                <td class="px-6 py-4 text-xs">Sep 14, 2026</td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-white">Marcus Holloway</div>
+                                    <div class="text-[10px] text-zinc-500">m.holloway@email.com</div>
+                                </td>
+                                <td class="px-6 py-4 text-white font-medium">$142.00</td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2.5 py-1 text-[10px] rounded-full bg-blue-500/10 text-blue-500 uppercase font-bold">Processing</span>
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <button class="text-zinc-500 hover:text-white text-xs font-medium">Details</button>
+                                </td>
+                            </tr>
+                            <!-- Order 2 -->
+                            <tr class="hover:bg-zinc-800/20 transition-colors">
+                                <td class="px-6 py-4 text-white font-mono text-xs">#ORD-7720</td>
+                                <td class="px-6 py-4 text-xs">Sep 14, 2026</td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-white">Elena Rodriguez</div>
+                                    <div class="text-[10px] text-zinc-500">elena.r@email.com</div>
+                                </td>
+                                <td class="px-6 py-4 text-white font-medium">$85.00</td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2.5 py-1 text-[10px] rounded-full bg-emerald-500/10 text-emerald-500 uppercase font-bold">Delivered</span>
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <button class="text-zinc-500 hover:text-white text-xs font-medium">Details</button>
+                                </td>
+                            </tr>
+                            <!-- Order 3 -->
+                            <tr class="hover:bg-zinc-800/20 transition-colors">
+                                <td class="px-6 py-4 text-white font-mono text-xs">#ORD-7719</td>
+                                <td class="px-6 py-4 text-xs">Sep 13, 2026</td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-white">Julian Chen</div>
+                                    <div class="text-[10px] text-zinc-500">j.chen@email.com</div>
+                                </td>
+                                <td class="px-6 py-4 text-white font-medium">$320.00</td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2.5 py-1 text-[10px] rounded-full bg-red-500/10 text-red-500 uppercase font-bold">Cancelled</span>
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <button class="text-zinc-500 hover:text-white text-xs font-medium">Details</button>
+                                </td>
+                            </tr>
+                            <!-- Order 4 -->
+                            <tr class="hover:bg-zinc-800/20 transition-colors">
+                                <td class="px-6 py-4 text-white font-mono text-xs">#ORD-7718</td>
+                                <td class="px-6 py-4 text-xs">Sep 13, 2026</td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-white">Sarah Jenkins</div>
+                                    <div class="text-[10px] text-zinc-500">s.jenkins@email.com</div>
+                                </td>
+                                <td class="px-6 py-4 text-white font-medium">$210.00</td>
+                                <td class="px-6 py-4">
+                                    <span class="px-2.5 py-1 text-[10px] rounded-full bg-amber-500/10 text-amber-500 uppercase font-bold">Pending</span>
+                                </td>
+                                <td class="px-6 py-4 text-right">
+                                    <button class="text-zinc-500 hover:text-white text-xs font-medium">Details</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- PAGINATION -->
+            <div class="flex justify-between items-center text-xs text-zinc-500 uppercase tracking-widest pt-4">
+                <p>Page 1 of 12</p>
+                <div class="flex space-x-2">
+                    <button class="px-4 py-2 border border-zinc-800 rounded hover:bg-zinc-900 transition-colors">Previous</button>
+                    <button class="px-4 py-2 border border-zinc-800 rounded hover:bg-zinc-900 transition-colors">Next</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Mobile Sidebar Toggle Script -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            if (sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+            }
+        }
+    </script>
+</body>
+</html>

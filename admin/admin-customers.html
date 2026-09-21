@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>starsClothing | Customer Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: { 950: '#020617', 900: '#0f172a' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#09090b] text-zinc-400 font-sans antialiased flex min-h-screen">
+
+    <!-- 1. Left Sidebar -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-brand-950 border-r border-zinc flex flex-col justify-between transform -translate-x-full lg:translate-x-0 lg:static transition-transform duration-300 ease-in-out">
+        <div class="flex flex-col">
+            <!-- Brand Area -->
+            <div class="h-16 px-6 border-b border-brand-border flex items-center justify-between">
+                <span class="font-mono text-sm font-bold tracking-wider uppercase text-white">CUA ADMIN</span>
+                <button onclick="toggleSidebar()" class="lg:hidden text-brand-textMuted hover:text-white">
+                    <!-- Icon: Close 'X' -->
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <nav class="p-4 space-y-1 mt-4">
+                <a href="admin-dashboard.html" class="flex items-center space-x-3 text-white bg-zinc-900 px-4 py-3 rounded-lg text-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="admin-products.html" class="flex items-center space-x-3 text-zinc-500 hover:text-white px-4 py-3 transition-all text-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                    <span>Products</span>
+                </a>
+                <a href="admin-orders.html" class="flex items-center space-x-3 text-zinc-500 hover:text-white px-4 py-3 transition-all text-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    <span>Orders</span>
+                </a>
+                <a href="admin-customers.html" class="flex items-center space-x-3 text-zinc-500 hover:text-white px-4 py-3 transition-all text-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <span>Customers</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="p-4 border-t border-zinc-800">
+            <a href="#" class="flex items-center space-x-3 text-zinc-500 hover:text-red-400 px-4 py-3 transition-all text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 lg:ml-64">
+        <!-- TOP BAR -->
+        <header class="h-20 border-b border-zinc-800 flex items-center justify-between px-8 bg-brand-950/50">
+            <!-- Hamburger Menu Trigger (Mobile only) -->
+                <button onclick="toggleSidebar()" class="lg:hidden text-brand-textMuted hover:text-white">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+
+            <div class="flex items-center space-x-2">
+                <span class="text-zinc-500 text-xs uppercase tracking-widest">Database</span>
+                <span class="text-zinc-700">/</span>
+                <span class="text-white text-xs uppercase tracking-widest font-medium">Customer Directory</span>
+            </div>
+        </header>
+
+        <div class="p-4 md:p-8 space-y-8">
+            
+            <!-- HEADER & ACTIONS -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h1 class="text-2xl font-semibold text-white">Customers</h1>
+                    <p class="text-xs text-zinc-500 mt-1">Manage your community and buyer profiles.</p>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <button class="bg-zinc-800 text-zinc-200 text-[10px] tracking-widest uppercase px-4 py-2 rounded hover:bg-zinc-700 transition-all">Export List</button>
+                    <button class="bg-white text-black text-[10px] tracking-widest uppercase font-bold px-4 py-2 rounded hover:bg-zinc-200 transition-all">+ Add Customer</button>
+                </div>
+            </div>
+
+            <!-- STATS SUMMARY -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                <div class="bg-zinc-900/40 border border-zinc-800 p-5 rounded-xl">
+                    <p class="text-[10px] text-zinc-500 uppercase tracking-widest">Total Users</p>
+                    <p class="text-2xl font-bold text-white mt-1">1,284</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 p-5 rounded-xl">
+                    <p class="text-[10px] text-zinc-500 uppercase tracking-widest">New (30d)</p>
+                    <p class="text-2xl font-bold text-emerald-500 mt-1">+142</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 p-5 rounded-xl">
+                    <p class="text-[10px] text-zinc-500 uppercase tracking-widest">VIP Customers</p>
+                    <p class="text-2xl font-bold text-white mt-1">86</p>
+                </div>
+                <div class="bg-zinc-900/40 border border-zinc-800 p-5 rounded-xl">
+                    <p class="text-[10px] text-zinc-500 uppercase tracking-widest">Avg. LTV</p>
+                    <p class="text-2xl font-bold text-white mt-1">$412.50</p>
+                </div>
+            </div>
+
+            <!-- SEARCH & FILTER -->
+            <div class="flex flex-col md:flex-row gap-4 items-center justify-between bg-zinc-900/20 p-4 rounded-xl border border-zinc-800/50">
+                <div class="relative w-full md:w-96">
+                    <input type="text" placeholder="Search by name, email or ID..." class="w-full bg-zinc-900 border border-zinc-800 text-sm rounded-lg py-2 px-4 text-white focus:outline-none focus:border-zinc-600 transition-all">
+                </div>
+                <div class="flex w-full md:w-auto space-x-2">
+                    <select class="flex-1 md:w-40 bg-zinc-900 border border-zinc-800 text-xs text-zinc-300 rounded-lg py-2 px-3 focus:outline-none">
+                        <option>All Status</option>
+                        <option>Active</option>
+                        <option>Inactive</option>
+                        <option>VIP</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- CUSTOMER LIST -->
+            
+            <!-- 1. DESKTOP TABLE VIEW (Visible on MD and up) -->
+            <div class="hidden md:block bg-zinc-900/20 border border-zinc-800 rounded-xl overflow-hidden">
+                <table class="w-full text-left text-sm">
+                    <thead>
+                        <tr class="text-zinc-500 text-[10px] uppercase tracking-[0.2em] bg-zinc-900/50">
+                            <th class="px-6 py-4 font-semibold">Customer</th>
+                            <th class="px-6 py-4 font-semibold">Email Address</th>
+                            <th class="px-6 py-4 font-semibold">Orders</th>
+                            <th class="px-6 py-4 font-semibold">Total Spent</th>
+                            <th class="px-6 py-4 font-semibold">Status</th>
+                            <th class="px-6 py-4 font-semibold text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-zinc-800">
+                        <!-- Row 1 -->
+                        <tr class="hover:bg-zinc-800/20 transition-colors">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-xs font-bold text-white">AR</div>
+                                    <span class="text-white font-medium">Alex Rivers</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-zinc-400 text-xs">alex.r@example.com</td>
+                            <td class="px-6 py-4 text-xs">12</td>
+                            <td class="px-6 py-4 text-white font-medium">$1,420.00</td>
+                            <td class="px-6 py-4">
+                                <span class="px-2 py-1 text-[10px] rounded-full bg-emerald-500/10 text-emerald-500 uppercase font-bold">VIP</span>
+                            </td>
+                            <td class="px-6 py-4 text-right text-zinc-500">
+                                <button class="hover:text-white">Edit</button>
+                            </td>
+                        </tr>
+                        <!-- Row 2 -->
+                        <tr class="hover:bg-zinc-800/20 transition-colors">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-xs font-bold text-white">JD</div>
+                                    <span class="text-white font-medium">Jordan Doe</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-zinc-400 text-xs">j.doe@gmail.com</td>
+                            <td class="px-6 py-4 text-xs">3</td>
+                            <td class="px-6 py-4 text-white font-medium">$245.00</td>
+                            <td class="px-6 py-4">
+                                <span class="px-2 py-1 text-[10px] rounded-full bg-zinc-500/10 text-zinc-500 uppercase font-bold">Active</span>
+                            </td>
+                            <td class="px-6 py-4 text-right text-zinc-500">
+                                <button class="hover:text-white">Edit</button>
+                            </td>
+                        </tr>
+                        <!-- Row 3 -->
+                        <tr class="hover:bg-zinc-800/20 transition-colors">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-xs font-bold text-white">SK</div>
+                                    <span class="text-white font-medium">Sarah Kim</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-zinc-400 text-xs">sk@fashion.com</td>
+                            <td class="px-6 py-4 text-xs">0</td>
+                            <td class="px-6 py-4 text-white font-medium">$0.00</td>
+                            <td class="px-6 py-4">
+                                <span class="px-2 py-1 text-[10px] rounded-full bg-red-500/10 text-red-500 uppercase font-bold">Inactive</span>
+                            </td>
+                            <td class="px-6 py-4 text-right text-zinc-500">
+                                <button class="hover:text-white">Edit</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 2. MOBILE/TABLET CARD VIEW (Visible only on < MD) -->
+            <div class="md:hidden space-y-4">
+                <!-- Card 1 -->
+                <div class="bg-zinc-900/40 border border-zinc-800 p-5 rounded-xl space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-sm font-bold text-white">AR</div>
+                            <div>
+                                <p class="text-white font-medium">Alex Rivers</p>
+                                <p class="text-[10px] text-zinc-500">alex.r@example.com</p>
+                            </div>
+                        </div>
+                        <span class="px-2 py-1 text-[9px] rounded-full bg-emerald-500/10 text-emerald-500 uppercase font-bold">VIP</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 pt-4 border-t border-zinc-800 text-xs">
+                        <div>
+                            <p class="text-zinc-500 text-[9px] uppercase tracking-widest">Orders</p>
+                            <p class="text-white">12</p>
+                        </div>
+                        <div>
+                            <p class="text-zinc-500 text-[9px] uppercase tracking-widest">Spent</p>
+                            <p class="text-white">$1,420.00</p>
+                        </div>
+                    </div>
+                    <button class="w-full py-2 bg-zinc-800 text-zinc-300 text-[10px] uppercase tracking-widest rounded">Manage User</button>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-zinc-900/40 border border-zinc-800 p-5 rounded-xl space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-sm font-bold text-white">JD</div>
+                            <div>
+                                <p class="text-white font-medium">Jordan Doe</p>
+                                <p class="text-[10px] text-zinc-500">j.doe@gmail.com</p>
+                            </div>
+                        </div>
+                        <span class="px-2 py-1 text-[9px] rounded-full bg-zinc-500/10 text-zinc-500 uppercase font-bold">Active</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 pt-4 border-t border-zinc-800 text-xs">
+                        <div>
+                            <p class="text-zinc-500 text-[9px] uppercase tracking-widest">Orders</p>
+                            <p class="text-white">3</p>
+                        </div>
+                        <div>
+                            <p class="text-zinc-500 text-[9px] uppercase tracking-widest">Spent</p>
+                            <p class="text-white">$245.00</p>
+                        </div>
+                    </div>
+                    <button class="w-full py-2 bg-zinc-800 text-zinc-300 text-[10px] uppercase tracking-widest rounded">Manage User</button>
+                </div>
+            </div>
+
+            <!-- PAGINATION -->
+            <div class="flex justify-between items-center text-xs text-zinc-500 pt-4">
+                <p>Page 1 of 15</p>
+                <div class="flex space-x-2">
+                    <button class="px-4 py-2 border border-zinc-800 rounded hover:bg-zinc-900 transition-all">Prev</button>
+                    <button class="px-4 py-2 border border-zinc-800 rounded hover:bg-zinc-900 transition-all">Next</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Mobile Sidebar Toggle Script -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            if (sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+            }
+        }
+    </script>
+</body>
+</html>

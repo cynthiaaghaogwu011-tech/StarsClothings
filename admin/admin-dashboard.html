@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>starsClothing | Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: { 950: '#020617', 900: '#0f172a' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #18181b; }
+        ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-[#09090b] text-zinc-400 font-sans antialiased flex min-h-screen">
+
+    <!-- 1. Left Sidebar -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-brand-950 border-r border-zinc flex flex-col justify-between transform -translate-x-full lg:translate-x-0 lg:static transition-transform duration-300 ease-in-out">
+        <div class="flex flex-col">
+            <!-- Brand Area -->
+            <div class="h-16 px-6 border-b border-brand-border flex items-center justify-between">
+                <span class="font-mono text-sm font-bold tracking-wider uppercase text-white">STARSCLOTHING ADMIN</span>
+                <button onclick="toggleSidebar()" class="lg:hidden text-brand-textMuted hover:text-white">
+                    <!-- Icon: Close 'X' -->
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <nav class="p-4 space-y-1 mt-4">
+                <a href="admin-dashboard.html" class="flex items-center space-x-3 text-white bg-zinc-900 px-4 py-3 rounded-lg text-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="admin-products.html" class="flex items-center space-x-3 text-zinc-500 hover:text-white px-4 py-3 transition-all text-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                    <span>Products</span>
+                </a>
+                <a href="admin-orders.html" class="flex items-center space-x-3 text-zinc-500 hover:text-white px-4 py-3 transition-all text-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    <span>Orders</span>
+                </a>
+                <a href="admin-customers.html" class="flex items-center space-x-3 text-zinc-500 hover:text-white px-4 py-3 transition-all text-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <span>Customers</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="p-4 border-t border-zinc-800">
+            <a href="#" class="flex items-center space-x-3 text-zinc-500 hover:text-red-400 px-4 py-3 transition-all text-sm">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 lg:ml-64">
+        
+        <!-- TOP BAR -->
+        <header class="h-20 border-b border-zinc-800 flex items-center justify-between px-8 bg-brand-950/50">
+            <div class="flex items-center space-x-4">
+                <!-- Hamburger Menu Trigger (Mobile only) -->
+                <button onclick="toggleSidebar()" class="lg:hidden text-brand-textMuted hover:text-white">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+                <div class="relative flex gap-5">
+                    <input type="text" placeholder="Search everything..." class="bg-zinc-900 border border-zinc-800 text-xs rounded-full py-2 px-4 w-64 focus:outline-none focus:border-zinc-600 transition-all">
+                    <div class="w-8 h-8 rounded-full bg-emerald-900 flex items-center justify-center text-white text-xs font-bold">A</div>
+                </div>
+            </div>
+        </header>
+
+        <div id="productList" class="p-8 space-y-8">
+            <div>
+                <h2 class="text-white font-medium tracking-tight">Overview Dashboard</h2>
+            </div>
+            <!-- STATS CARDS -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-xl">
+                    <p class="text-xs font-medium text-zinc-500 uppercase tracking-widest">Total Revenue</p>
+                    <h3 class="text-2xl font-bold text-white mt-2">$42,500.00</h3>
+                    <p class="text-[10px] text-emerald-500 mt-2 flex items-center">
+                        <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+                        +12.5% from last month
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-xl">
+                    <p class="text-xs font-medium text-zinc-500 uppercase tracking-widest">Active Orders</p>
+                    <h3 class="text-2xl font-bold text-white mt-2">156</h3>
+                    <p class="text-[10px] text-zinc-500 mt-2">+5 new today</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-xl">
+                    <p class="text-xs font-medium text-zinc-500 uppercase tracking-widest">New Customers</p>
+                    <h3 class="text-2xl font-bold text-white mt-2">842</h3>
+                    <p class="text-[10px] text-emerald-500 mt-2 flex items-center">
+                        <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+                        +3.2%
+                    </p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-xl">
+                    <p class="text-xs font-medium text-zinc-500 uppercase tracking-widest">Avg. Order Value</p>
+                    <h3 class="text-2xl font-bold text-white mt-2">$128.00</h3>
+                    <p class="text-[10px] text-red-500 mt-2 flex items-center">
+                        <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+                        -1.4%
+                    </p>
+                </div>
+            </div>
+
+            <!-- MAIN SECTION: RECENT ORDERS & PRODUCTS -->
+            <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+                
+                <!-- RECENT ORDERS TABLE (Col Span 2) -->
+                <div class="xl:col-span-2 bg-zinc-900/30 border border-zinc-800 rounded-xl overflow-hidden">
+                    <div class="p-6 border-b border-zinc-800 flex justify-between items-center">
+                        <h4 class="text-white font-medium">Recent Orders</h4>
+                        <button class="text-xs text-zinc-500 hover:text-white transition-colors uppercase tracking-widest">View All</button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm">
+                            <thead>
+                                <tr class="text-zinc-500 text-[10px] uppercase tracking-widest bg-zinc-900/50">
+                                    <th class="px-6 py-4 font-medium">Order ID</th>
+                                    <th class="px-6 py-4 font-medium">Customer</th>
+                                    <th class="px-6 py-4 font-medium">Status</th>
+                                    <th class="px-6 py-4 font-medium">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-zinc-800">
+                                <tr class="hover:bg-zinc-800/30 transition-colors">
+                                    <td class="px-6 py-4 text-white font-mono text-xs">#SC-9901</td>
+                                    <td class="px-6 py-4">Alex Rivers</td>
+                                    <td class="px-6 py-4">
+                                        <span class="px-2 py-1 text-[10px] bg-emerald-500/10 text-emerald-500 rounded-full uppercase font-bold">Shipped</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-white font-medium">$185.00</td>
+                                </tr>
+                                <tr class="hover:bg-zinc-800/30 transition-colors">
+                                    <td class="px-6 py-4 text-white font-mono text-xs">#SC-9894</td>
+                                    <td class="px-6 py-4">Jordan Smith</td>
+                                    <td class="px-6 py-4">
+                                        <span class="px-2 py-1 text-[10px] bg-amber-500/10 text-amber-500 rounded-full uppercase font-bold">Pending</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-white font-medium">$240.00</td>
+                                </tr>
+                                <tr class="hover:bg-zinc-800/30 transition-colors">
+                                    <td class="px-6 py-4 text-white font-mono text-xs">#SC-9882</td>
+                                    <td class="px-6 py-4">Casey Vance</td>
+                                    <td class="px-6 py-4">
+                                        <span class="px-2 py-1 text-[10px] bg-zinc-500/10 text-zinc-500 rounded-full uppercase font-bold">Cancelled</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-white font-medium">$85.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- PRODUCT SNAPSHOT (Col Span 1) -->
+                <div class="bg-zinc-900/30 border border-zinc-800 rounded-xl p-6">
+                    <h4 class="text-white font-medium mb-6">Top Products</h4>
+                    <div class="space-y-6">
+                        <!-- Product Item -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded bg-zinc-800 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=100&q=80" alt="Product" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <p class="text-sm text-white font-medium leading-none">Cosmic Hoodie</p>
+                                    <p class="text-[10px] text-zinc-500 mt-1">SKU: HOOD-01</p>
+                                </div>
+                            </div>
+                            <span class="text-sm text-white font-semibold">42 sold</span>
+                        </div>
+                        <!-- Product Item -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded bg-zinc-800 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=100&q=80" alt="Product" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <p class="text-sm text-white font-medium leading-none">Graphic Tee</p>
+                                    <p class="text-[10px] text-zinc-500 mt-1">SKU: TEE-04</p>
+                                </div>
+                            </div>
+                            <span class="text-sm text-white font-semibold">28 sold</span>
+                        </div>
+                        <!-- Product Item -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded bg-zinc-800 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=100&q=80" alt="Product" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <p class="text-sm text-white font-medium leading-none">Urban Cap</p>
+                                    <p class="text-[10px] text-zinc-500 mt-1">SKU: CAP-09</p>
+                                </div>
+                            </div>
+                            <span class="text-sm text-white font-semibold">15 sold</span>
+                        </div>
+                    </div>
+                    <button class="w-full mt-8 py-2 text-[10px] tracking-widest uppercase border border-zinc-800 text-zinc-500 hover:text-white hover:border-zinc-600 transition-all rounded">Manage Inventory</button>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+
+    <!-- Mobile Sidebar Toggle Script -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            if (sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+            }
+        }
+        const token = localStorage.getItem('adminToken');
+        if (!token) {
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+</html>
