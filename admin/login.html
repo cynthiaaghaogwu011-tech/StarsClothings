@@ -61,6 +61,8 @@
   </div>
 
   <script>
+    const API_BASE = 'https://starsclothings.onrender.com';
+
     const form = document.getElementById('loginForm');
     form.addEventListener('submit', async(event) => {
       event.preventDefault();
@@ -70,7 +72,7 @@
       try{
         submitBtn.textContent = "Signing in ...";
         submitBtn.disabled = true;
-        const response = await fetch('http://localhost:3000/api/admin/login', {
+        const response = await fetch(`${API_BASE}/api/admin/login`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
