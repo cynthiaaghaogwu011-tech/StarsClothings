@@ -4,6 +4,7 @@ const cors = require('cors');
 const connectDB = require('./config/db');
 const productRoutes = require('./routes/productRoutes');
 const adminRoutes = require('./routes/adminRoutes.js');
+const orderRoutes = require('./routes/orderRoutes');
 
 const app = express();
 app.use(cors());
@@ -11,6 +12,7 @@ app.use(express.json());
 
 app.use('/api/products', productRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/orders', orderRoutes);
 const PORT = process.env.PORT || 3000;
 
 const startServer = async () => {
