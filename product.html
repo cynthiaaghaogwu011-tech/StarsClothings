@@ -114,7 +114,7 @@
             <div class="lg:col-span-5 space-y-8">
                 <div>
                     <!-- Category context -->
-                    <span class="text-[9px] tracking-superwide text-zinc-400 uppercase font-medium">Streetwear</span>
+                    <span id="productCategory" class="text-[9px] tracking-superwide text-zinc-400 uppercase font-medium"></span>
                     <!-- Product title -->
                     <h1 id="productName" class="text-2xl md:text-3xl font-light text-[#111111] mt-1 leading-tight tracking-wide">
                         Red Dress
@@ -154,6 +154,7 @@
                     <button id="addToCart" class="w-full bg-black text-white hover:bg-zinc-900 transition-colors py-4 text-[10px] tracking-superwide uppercase font-medium">
                         Add to Cart
                     </button>
+                    <div id="cartMessage" class="hidden fixed bottom-4 right-4 bg-black text-white px-4 py-2 rounded"></div>
                 </div>
 
                 <!-- Product Specifications - Accordion Section -->
@@ -325,9 +326,8 @@
         }
     </script>
 
+    <script src="config.js"></script>
     <script src="product.js"></script>
-
-
-
+    <script src="cart.js"></script>
 </body>
 </html>
