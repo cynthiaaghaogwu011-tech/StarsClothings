@@ -47,6 +47,7 @@ if (document.getElementById("cartItems")) {
 }
 function showCartMessage(message) {
     const cartMessage = document.getElementById("cartMessage");
+    if (!cartMessage) return;
     cartMessage.textContent = message;
     // Show popup
     cartMessage.classList.remove("opacity-0", "translate-y-[-20px]");
