@@ -26,7 +26,7 @@
         <div class="flex flex-col">
             <!-- Brand Area -->
             <div class="h-16 px-6 border-b border-brand-border flex items-center justify-between">
-                <span class="font-mono text-sm font-bold tracking-wider uppercase text-white">CUA ADMIN</span>
+                <span class="font-mono text-sm font-bold tracking-wider uppercase text-white">STARSCLOTHING ADMIN</span>
                 <button onclick="toggleSidebar()" class="lg:hidden text-brand-textMuted hover:text-white">
                     <!-- Icon: Close 'X' -->
                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
@@ -36,7 +36,7 @@
             </div>
 
             <nav class="p-4 space-y-1 mt-4">
-                <a href="admin-dashboard.html" class="flex items-center space-x-3 text-white bg-zinc-900 px-4 py-3 rounded-lg text-sm">
+                <a href="admin-dashboard.html" class="flex items-center space-x-3 text-zinc-500 hover:text-white text-sm">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
                     <span>Dashboard</span>
                 </a>
@@ -44,13 +44,17 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
                     <span>Products</span>
                 </a>
-                <a href="admin-orders.html" class="flex items-center space-x-3 text-zinc-500 hover:text-white px-4 py-3 transition-all text-sm">
+                <a href="admin-orders.html" class="flex items-center space-x-3 text-white bg-zinc-900 rounded-lg px-4 py-3 transition-all text-sm">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
                     <span>Orders</span>
                 </a>
                 <a href="admin-customers.html" class="flex items-center space-x-3 text-zinc-500 hover:text-white px-4 py-3 transition-all text-sm">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
                     <span>Customers</span>
+                </a>
+                <a href="messages.html" class="flex items-center space-x-3 text-zinc-500 hover:text-white px-4 py-3 transition-all text-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <span>Messages</span>
                 </a>
             </nav>
         </div>
@@ -92,20 +96,20 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-xl">
                     <p class="text-xs font-medium text-zinc-500 uppercase tracking-widest">Pending Shipments</p>
-                    <h3 class="text-3xl font-bold text-amber-500 mt-2">24</h3>
+                    <h3 id="pendingCount" class="text-3xl font-bold text-amber-500 mt-2">24</h3>
                 </div>
                 <div class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-xl">
                     <p class="text-xs font-medium text-zinc-500 uppercase tracking-widest">Completed Today</p>
-                    <h3 class="text-3xl font-bold text-white mt-2">12</h3>
+                    <h3 id="completedTodayCount" class="text-3xl font-bold text-white mt-2">12</h3>
                 </div>
                 <div class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-xl">
                     <p class="text-xs font-medium text-zinc-500 uppercase tracking-widest">Revenue (Last 7 Days)</p>
-                    <h3 class="text-3xl font-bold text-emerald-500 mt-2">$3,840.00</h3>
+                    <h3 id="revenueLast7Days" class="text-3xl font-bold text-emerald-500 mt-2">$3,840.00</h3>
                 </div>
             </div>
 
             <!-- ORDER TABLE -->
-            <div class="bg-zinc-900/20 border border-zinc-800 rounded-xl overflow-hidden">
+            <div id="" class="bg-zinc-900/20 border border-zinc-800 rounded-xl overflow-hidden">
                 <div class="p-6 border-b border-zinc-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                     <h4 class="text-white font-medium">Transaction Log</h4>
                     <div class="flex space-x-3">
@@ -126,7 +130,7 @@
                                 <th class="px-6 py-4 font-semibold text-right">Action</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-zinc-800">
+                        <tbody id="orderTableBody" class="divide-y divide-zinc-800">
                             <!-- Order 1 -->
                             <tr class="hover:bg-zinc-800/20 transition-colors">
                                 <td class="px-6 py-4 text-white font-mono text-xs">#ORD-7721</td>
@@ -208,6 +212,36 @@
         </div>
     </main>
 
+    <!-- Order Details Modal -->
+    <div id="orderDetailsModal" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
+        <div class="bg-zinc-900 border border-zinc-800 rounded-xl max-w-lg w-full max-h-[85vh] overflow-y-auto p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-white font-medium">Order <span id="modalOrderNumber"></span></h3>
+                <button onclick="closeOrderDetails()" class="text-zinc-500 hover:text-white">✕</button>
+            </div>
+            <div class="text-sm text-zinc-300 space-y-1 mb-4">
+                <p><span class="text-zinc-500">Customer:</span> <span id="modalFullName"></span></p>
+                <p><span class="text-zinc-500">Email:</span> <span id="modalEmail"></span></p>
+                <p><span class="text-zinc-500">Address:</span> <span id="modalAddress"></span></p>
+            </div>
+            <div id="modalItemsList" class="space-y-3 mb-4 border-t border-zinc-800 pt-4"></div>
+            <div class="flex justify-between items-center border-t border-zinc-800 pt-4 mb-4">
+                <span class="text-zinc-500 text-sm">Total</span>
+                <span id="modalTotal" class="text-white font-medium"></span>
+            </div>
+            <div class="flex items-center gap-3">
+                <select id="modalStatusSelect" class="bg-zinc-900 border border-zinc-800 text-xs rounded-md py-2 px-3 text-white">
+                    <option value="pending">Pending</option>
+                    <option value="processing">Processing</option>
+                    <option value="shipped">Shipped</option>
+                    <option value="delivered">Delivered</option>
+                    <option value="cancelled">Cancelled</option>
+                </select>
+                <button onclick="updateOrderStatus()" class="bg-white text-black text-xs font-medium px-4 py-2 rounded hover:bg-zinc-200">Save Status</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Mobile Sidebar Toggle Script -->
     <script>
         const API_BASE = 'https://starsclothings.onrender.com';
@@ -220,6 +254,116 @@
                 sidebar.classList.add('-translate-x-full');
             }
         }
+        async function loadOrders() {
+            try {
+                const token = localStorage.getItem("adminToken");
+                const response = await fetch(`${API_BASE}/api/orders`, {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            const result = await response.json();
+            const orders = result.data;
+            const statusColors = {
+                pending: "bg-yellow-500/10 text-yellow-500",
+                processing: "bg-blue-500/10 text-blue-500",
+                shipped: "bg-purple-500/10 text-purple-500",
+                delivered: "bg-green-500/10 text-green-500",
+                cancelled: "bg-red-500/10 text-red-500"
+            };
+            const orderTableBody = document.getElementById("orderTableBody");
+            orderTableBody.innerHTML = orders.map(order => `
+                <tr class="hover:bg-zinc-800/20 transition-colors">
+                    <td class="px-6 py-4 text-white font-mono text-xs">${order.orderNumber}</td>
+                    <td class="px-6 py-4 text-xs">${new Date(order.createdAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</td>
+                    <td class="px-6 py-4">
+                        <div class="text-sm text-white">${order.fullName}</div>
+                        <div class="text-[10px] text-zinc-500">${order.email}</div>
+                    </td>
+                    <td class="px-6 py-4 text-white font-medium">₦${order.totalAmount.toLocaleString()}</td>
+                    <td class="px-6 py-4">
+                        <span class="px-2.5 py-1 text-[10px] rounded-full ${statusColors[order.status] || "bg-zinc-500/10 text-zinc-500"} uppercase font-bold">${order.status}</span>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <button onclick="viewOrderDetails('${order._id}')" class="text-zinc-500 hover:text-white text-xs font-medium">Details</button>
+                    </td>
+                </tr>
+            `).join("");
+            // Pending Shipments
+            const pendingCount = orders.filter(order => order.status === "pending").length;
+            document.getElementById("pendingCount").textContent = pendingCount;
+            // Completed Today (delivered orders created today)
+            const today = new Date().toDateString();
+            const completedTodayCount = orders.filter(order =>
+            order.status === "delivered" && new Date(order.createdAt).toDateString() === today).length;
+            document.getElementById("completedTodayCount").textContent = completedTodayCount;
+            // Revenue (Last 7 Days)
+            const sevenDaysAgo = new Date();
+            sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+            const revenueLast7Days = orders.filter(order => new Date(order.createdAt) >= sevenDaysAgo).reduce((sum, order) => sum + order.totalAmount, 0);
+            document.getElementById("revenueLast7Days").textContent = "₦" + revenueLast7Days.toLocaleString();
+        } catch (error) {
+            console.error("LOAD ORDERS ERROR:", error);
+        }
+        }
+        loadOrders();
+
+        let currentOrderId = null;
+        async function viewOrderDetails(id) {
+        try {
+            const token = localStorage.getItem("adminToken");
+            const response = await fetch(`${API_BASE}/api/orders/${id}`, {
+                headers: { "Authorization": `Bearer ${token}` }
+            });
+            const result = await response.json();
+            const order = result.data;
+            currentOrderId = order._id;
+            document.getElementById("modalOrderNumber").textContent = order.orderNumber;
+            document.getElementById("modalFullName").textContent = order.fullName;
+            document.getElementById("modalEmail").textContent = order.email;
+            document.getElementById("modalAddress").textContent = order.address;
+            document.getElementById("modalTotal").textContent = "₦" + order.totalAmount.toLocaleString();
+            document.getElementById("modalStatusSelect").value = order.status;
+
+            const modalItemsList = document.getElementById("modalItemsList");
+            modalItemsList.innerHTML = order.items.map(item => `
+                <div class="flex items-center gap-3">
+                    <img src="${item.image}" class="w-12 h-12 object-cover rounded">
+                    <div class="flex-1">
+                        <p class="text-white text-xs">${item.name}</p>
+                        <p class="text-zinc-500 text-[10px]">Qty: ${item.quantity} × ₦${item.price.toLocaleString()}</p>
+                    </div>
+                </div>
+            `).join("");
+            document.getElementById("orderDetailsModal").classList.remove("hidden");
+        } catch (error) {
+            console.error("VIEW ORDER DETAILS ERROR:", error);
+        }
+    }
+        function closeOrderDetails() {
+    document.getElementById("orderDetailsModal").classList.add("hidden");
+    currentOrderId = null;
+    }
+
+        async function updateOrderStatus() {
+    try {
+        const token = localStorage.getItem("adminToken");
+        const newStatus = document.getElementById("modalStatusSelect").value;
+        const response = await fetch(`${API_BASE}/api/orders/${currentOrderId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify({ status: newStatus })
+        });
+        if (!response.ok) throw new Error("Update failed");
+        closeOrderDetails();
+        loadOrders(); // refresh table + metrics
+    } catch (error) {
+        console.error("UPDATE ORDER STATUS ERROR:", error);
+    }
+}
     </script>
 </body>
 </html>

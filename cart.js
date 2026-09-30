@@ -9,7 +9,6 @@ function displayCart() {
         return;
     }
     cartItems.innerHTML = "";
-
     let total = 0;
     cart.forEach(item => {
         total += item.price * item.quantity;
@@ -18,19 +17,34 @@ function displayCart() {
                 <img src="${item.images[0]}" class="w-24 h-24 object-cover rounded">
                 <div class="flex-1">
                     <h2 class="text-xl font-bold">${item.name}</h2>
-                    <p>$${item.price}</p>
-                    <p>Quantity: ${item.quantity}</p>
+                    <p>#${item.price.toLocaleString()}</p>
+                    <div class="flex items-center gap-3 mt-2">
+                        <button onclick="changeQuantity('${item._id}', -1)" class="px-3 py-1 border rounded hover:bg-zinc-100">−</button>
+                        <span>${item.quantity}</span>
+                        <button onclick="changeQuantity('${item._id}', 1)" class="px-3 py-1 border rounded hover:bg-zinc-100">+</button>
+                    </div>
                 </div>
                 <button
                     onclick="removeItem('${item._id}')"
                     class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
                     Remove
                 </button>
-
             </div>
         `;
     });
-    cartTotal.textContent = "$" + total;
+    cartTotal.textContent = "#" + total.toLocaleString();
+}
+
+function changeQuantity(id, delta) {
+    const item = cart.find(item => item._id === id);
+    if (!item) return;
+    item.quantity += delta;
+    if (item.quantity <= 0) {
+        cart = cart.filter(item => item._id !== id);
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    displayCart();
+    updateCartCount();
 }
 
 function removeItem(id) {
@@ -50,14 +64,25 @@ function showCartMessage(message) {
     if (!cartMessage) return;
     cartMessage.textContent = message;
     // Show popup
-    cartMessage.classList.remove("opacity-0", "translate-y-[-20px]");
+    cartMessage.classList.remove("hidden", "opacity-0", "translate-y-[-20px]");
     cartMessage.classList.add("opacity-100", "translate-y-0");
     // Hide after 2 seconds
     setTimeout(() => {
         cartMessage.classList.remove("opacity-100", "translate-y-0");
-        cartMessage.classList.add("opacity-0", "translate-y-[-20px]");
+        cartMessage.classList.add("hidden", "opacity-0", "translate-y-[-20px]");
     }, 2000);
 }
+
+//UpdateCartCount()
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+    const cartCount = document.getElementById("cartCountBadge");
+    if (cartCount) {
+        cartCount.textContent = totalItems;
+    }
+}
+
 //This code makes the button only work when input field is filled correctly (4 some reason it doesnt move from cart.)
 const checkoutBtn = document.getElementById("checkoutBtn");
 if (checkoutBtn) {

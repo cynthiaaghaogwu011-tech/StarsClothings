@@ -48,10 +48,11 @@
 
                 <!-- Right: Utilities (Bag & Profile) -->
                 <div class="flex items-center space-x-6">
-                    <a href="#" class="text-zinc-800 hover:text-black transition-colors" aria-label="Shopping Bag">
+                    <a href="cart.html" class="relative hover:opacity-70 transition-opacity" aria-label="Shopping Bag">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1,0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0,1-1.12-1.243l1.264-12A1.125 1.125 0 0,1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1,1-.75 0 .375.375 0 0,1 .75 0Zm7.5 0a.375.375 0 1,1-.75 0 .375.375 0 0,1 .75 0Z" />
                         </svg>
+                        <span id="cartCountBadge" class="absolute -top-6 -right-3 bg-red-500 text-white rounded-full text-xs px-1 py-1">0</span>
                     </a>
                     <a href="#" class="text-zinc-800 hover:text-black transition-colors" aria-label="Account">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
@@ -104,34 +105,35 @@
                 </div>
 
                 <!-- Form Element -->
-                <form class="space-y-6">
+                <form onsubmit="handleContactSubmit(event)" class="space-y-6">
                     <div>
                         <label class="block text-[9px] tracking-widest text-zinc-500 uppercase font-semibold mb-1">Name</label>
-                        <input type="text" placeholder="Full Name" class="w-full bg-transparent border-b border-zinc-300 py-3 text-xs placeholder-zinc-400 focus:outline-none focus:border-black transition-colors" required>
+                        <input type="text" name="name" placeholder="Full Name" class="w-full bg-transparent border-b border-zinc-300 py-3 text-xs placeholder-zinc-400 focus:outline-none focus:border-black transition-colors" required>
                     </div>
 
                     <div>
                         <label class="block text-[9px] tracking-widest text-zinc-500 uppercase font-semibold mb-1">Email</label>
-                        <input type="email" placeholder="email@address.com" class="w-full bg-transparent border-b border-zinc-300 py-3 text-xs placeholder-zinc-400 focus:outline-none focus:border-black transition-colors" required>
+                        <input type="email" name="email" placeholder="email@address.com" class="w-full bg-transparent border-b border-zinc-300 py-3 text-xs placeholder-zinc-400 focus:outline-none focus:border-black transition-colors" required>
                     </div>
 
                     <div>
                         <label class="block text-[9px] tracking-widest text-zinc-500 uppercase font-semibold mb-1">Order Number</label>
-                        <input type="text" placeholder="#000000 (Optional)" class="w-full bg-transparent border-b border-zinc-300 py-3 text-xs placeholder-zinc-400 focus:outline-none focus:border-black transition-colors">
+                        <input type="text" name="orderNumber" placeholder="#000000 (Optional)" class="w-full bg-transparent border-b border-zinc-300 py-3 text-xs placeholder-zinc-400 focus:outline-none focus:border-black transition-colors">
                     </div>
 
                     <div>
                         <label class="block text-[9px] tracking-widest text-zinc-500 uppercase font-semibold mb-1">Message</label>
-                        <textarea placeholder="Your inquiry..." rows="3" class="w-full bg-transparent border-b border-zinc-300 py-3 text-xs placeholder-zinc-400 focus:outline-none focus:border-black transition-colors resize-none" required></textarea>
+                        <textarea name="message" placeholder="Your inquiry..." rows="3" class="w-full bg-transparent border-b border-zinc-300 py-3 text-xs placeholder-zinc-400 focus:outline-none focus:border-black transition-colors resize-none" required></textarea>
                     </div>
 
                     <div class="pt-2">
                         <button type="submit" class="bg-black hover:bg-zinc-900 text-white text-[9px] tracking-superwide uppercase px-8 py-3.5 font-light transition-colors flex items-center space-x-2">
-                            <span>Submit Inquiry</span>
+                            <span>Send Message</span>
                             <span>→</span>
                         </button>
                     </div>
                 </form>
+                <p id="formMessage" class="mt-4 text-sm text-center hidden"></p>
             </div>
 
             <!-- Right Column: Frequently Asked Questions & Live Chat Card -->
@@ -217,8 +219,8 @@
                 <div class="flex flex-wrap justify-center space-x-6 text-[9px] tracking-superwide text-zinc-500 uppercase">
                     <a href="#" class="hover:text-black transition-colors">Privacy</a>
                     <a href="#" class="hover:text-black transition-colors">Terms</a>
-                    <a href="#" class="hover:text-black transition-colors">Instagram</a>
-                    <a href="#" class="hover:text-black transition-colors">Tiktok</a>
+                    <a href="https://www.instagram.com/starsclothing/" target="_blank" class="hover:text-black transition-colors">Instagram</a>
+                    <a href="https://www.tiktok.com/@starzclothing/" target="_blank" class="hover:text-black transition-colors">Tiktok</a>
                 </div>
 
                 <!-- Right Copyright -->
@@ -229,8 +231,12 @@
             </div>
         </div>
     </footer>
+    <div id="toast" class="hidden fixed top-5 right-5 z-50 flex items-center gap-3 bg-white border border-gray-200 shadow-lg rounded-lg px-4 py-3">
+        <span id="toastIcon" class="text-xl"></span>
+        <span id="toastMessage" class="text-sm text-gray-800"></span>
+    </div>
 
-    <!-- Vanilla Javascript Interactions -->
+    <script src="config.js"></script>
     <script>
         // Toggle mobile primary header menu
         const mobileNavToggle = document.getElementById('mobile-nav-toggle');
@@ -252,6 +258,57 @@
                 icon.style.transform = "rotate(0deg)";
             }
         }
+        function showToast(message, type = "success") {
+            const toast = document.getElementById("toast");
+            const toastMessage = document.getElementById("toastMessage");
+            const toastIcon = document.getElementById("toastIcon");
+            toastMessage.textContent = message;
+            toastIcon.textContent = type === "success" ? "✅" : "❗";
+            toast.classList.remove("hidden");
+            setTimeout(() => {
+            toast.classList.add("hidden");
+            }, 3000);
+        }
+        async function handleContactSubmit(event) {
+            event.preventDefault(); //Prevent browsers default form submision method.(ill handle it myself.)
+            const form = event.target; //give me the form submitted and store it in this variable (form).
+            const formMessage = document.getElementById("formMessage"); 
+            const btn = form.querySelector('button[type="submit"]');  //inside this form, find a button whose type is submit and store it in (btn).
+            const formData = new FormData(form); //collect the submitted values from this form
+            const data = Object.fromEntries(formData);  //Object.fromEntries converts values into javscript object and saves them in the variable called data.
+            console.log("Data being sent:", data);
+            btn.innerHTML = `<span>SENDING...</span>`;  //changes whats displaying inside the button.
+            btn.disabled = true;  //prevent user from clicking the btn repeatedly while the request is been processed.
+
+            try{
+                const response = await fetch("https://starsclothings.onrender.com/api/contact", {  //get reponse before moving on to the next function. (fetch() is  used to make a request to the server.)
+                    method: "POST",  //This is a POST req.
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();  //response from backend.
+                console.log("Backend response:", result);
+                if (!response.ok) {
+                    const errorMsg = result.errors
+                    ? result.errors[0].msg: result.message || "Failed to send message";
+                    throw new Error(errorMsg);
+                }
+                showToast(result.message, "success");
+                formMessage.classList.remove("hidden");
+                console.log("Message now inside HTML:", formMessage.textContent);
+                form.reset(); //Clears the form fields
+
+            } catch (error) {   //If an error happens inside the try section, javascript comes here.
+                console.error("CONTACT ERROR:", error);
+                showToast(error.message, "error");
+                formMessage.classList.remove("hidden");
+
+            } finally {  //Run this code whether the operation succeeds or fails.
+                btn.innerHTML = `<span>Send Message</span><span class="text-base"></span>`;
+                btn.disabled = false  //restore button so user can click it again.
+            }
+        };
     </script>
 </body>
 </html>

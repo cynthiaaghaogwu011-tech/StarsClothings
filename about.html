@@ -37,7 +37,6 @@
                 <!-- Left Nav Links (Desktop) -->
                 <nav class="hidden lg:flex space-x-6 text-[10px] tracking-superwide uppercase text-zinc-500">
                     <a href="shop.html" class="hover:text-black transition-colors">Collections</a>
-                    <a href="#" class="hover:text-black transition-colors">Lookbook</a>
                 </nav>
 
                 <!-- Mobile Left Hamburger -->
@@ -56,12 +55,11 @@
 
                 <!-- Right Nav Links & Icons -->
                 <div class="flex items-center space-x-4 md:space-x-6 justify-self-end text-[10px] tracking-superwide uppercase">
-                    <a href="#" class="hidden lg:inline text-zinc-500 hover:text-black transition-colors">Objects</a>
-                    <a href="about.html" class="hidden lg:inline text-black border-b border-black font-medium pb-0.5">Studio</a>
-                    <a href="#" class="text-zinc-800 hover:text-black transition-colors" aria-label="Shopping Bag">
+                    <a href="cart.html" class="relative hover:opacity-70 transition-opacity" aria-label="Shopping Bag">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1,0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0,1-1.12-1.243l1.264-12A1.125 1.125 0 0,1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1,1-.75 0 .375.375 0 0,1 .75 0Zm7.5 0a.375.375 0 1,1-.75 0 .375.375 0 0,1 .75 0Z" />
                         </svg>
+                        <span id="cartCountBadge" class="absolute -top-6 -right-3 bg-red-500 text-white rounded-full text-xs px-1 py-1">0</span>
                     </a>
                 </div>
 

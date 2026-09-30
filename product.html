@@ -37,7 +37,6 @@
                 <!-- Left: Navigation (Desktop) -->
                 <nav class="hidden lg:flex space-x-6 text-[10px] tracking-superwide uppercase">
                     <a href="shop.html" class="text-zinc-500 hover:text-black transition-colors">Collections</a>
-                    <a href="shop.html" class="text-zinc-500 hover:text-black transition-colors">Men</a>
                     <a href="shop.html" class="text-zinc-500 hover:text-black transition-colors">Women</a>
                     <a href="shop.html" class="text-zinc-500 hover:text-black transition-colors">Accessories</a>
                 </nav>
@@ -63,18 +62,15 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.602 10.602Z" />
                         </svg>
                     </button>
-                    <a id="cartCount" href="cart.html" class="relative hover:opacity-70 transition-opacity" aria-label="Shopping Bag">
+                    <a href="cart.html" class="relative hover:opacity-70 transition-opacity" aria-label="Shopping Bag">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1,0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0,1-1.12-1.243l1.264-12A1.125 1.125 0 0,1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1,1-.75 0 .375.375 0 0,1 .75 0Zm7.5 0a.375.375 0 1,1-.75 0 .375.375 0 0,1 .75 0Z" />
                         </svg>
-                        <span  id="cartCount" class="absolute -top-6 -right-3 text-white bg-red-500 rounded-full text-xs px-1 py-1"> 0 </span>
+                        <span id="cartCountBadge" class="absolute -top-6 -right-3 bg-red-500 text-white rounded-full text-xs px-1 py-1">0</span>
                     </a>
-                    
                 </div>
-
             </div>
         </div>
-
         <!-- Mobile Navigation Menu Dropdown -->
         <div id="mobile-nav-menu" class="hidden lg:hidden bg-[#f7f7f7] border-b border-zinc-200 px-6 py-4 space-y-3">
             <a href="shop.html" class="block text-[10px] tracking-superwide uppercase text-black font-semibold">Collections</a>
@@ -82,11 +78,9 @@
             <a href="shop.html" class="block text-[10px] tracking-superwide uppercase text-zinc-500">Accessories</a>
         </div>
     </header>
-
     <!-- Main Content Grid -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
-            
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">           
             <!-- LEFT COLUMN: Product Images Gallery -->
             <div class="lg:col-span-7 space-y-4">
                 <!-- Large Active Image -->
@@ -106,10 +100,8 @@
                     <button class="thumbnail-btn aspect-square border border-transparent overflow-hidden hover:border-zinc-300" onclick="changeImage('assets/images/IMG_3160.jpg', this)">
                         <img src="assets/images/IMG_3160.jpg" alt="View 3" class="w-full h-full object-cover">
                     </button>
-
                 </div>
             </div>
-
             <!-- RIGHT COLUMN: Configuration & Purchase Details -->
             <div class="lg:col-span-5 space-y-8">
                 <div>
@@ -194,57 +186,7 @@
             </div>
 
             <!-- Responsive 4-Column Recommendation Grid -->
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-12">
-                
-                <!-- Card 1 -->
-                <div>
-                    <a href="product.html?id=10">
-                        <div class="aspect-[3/4] bg-neutral-100 overflow-hidden mb-3">
-                            <img src="assets/images/IMG_3197.jpg" alt="Black Lace Dress" class="w-full h-full object-cover">
-                        </div>
-                    </a>
-                    <div class="space-y-1">
-                        <h3 class="text-[10px] tracking-widest text-[#111111] uppercase font-light">Caramel Dress</h3>
-                        <p class="text-[10px] tracking-widest text-zinc-500 font-light">$185.00</p>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div>
-                    <div class="aspect-[3/4] bg-neutral-100 overflow-hidden mb-3">
-                        <img src="assets/images/IMG_2706.jpg" alt="Architectural Denim" class="w-full h-full object-cover">
-                    </div>
-                    <div class="space-y-1">
-                        <h3 class="text-[10px] tracking-widest text-[#111111] uppercase font-light">Architectural Denim</h3>
-                        <p class="text-[10px] tracking-widest text-zinc-500 font-light">$120.00</p>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div>
-                    <a href="product.html?id=5">
-                        <div class="aspect-[3/4] bg-neutral-100 overflow-hidden mb-3">
-                            <img src="assets/images/IMG_2696.jpg" alt="Black Silhouette Dinner Dress" class="w-full h-full object-cover">
-                        </div>
-                    </a>
-                    <div class="space-y-1">
-                        <h3 class="text-[10px] tracking-widest text-[#111111] uppercase font-light">Sophia Dress</h3>
-                        <p class="text-[10px] tracking-widest text-zinc-500 font-light">$380.00</p>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div>
-                    <div class="aspect-[3/4] bg-neutral-100 overflow-hidden mb-3">
-                        <img src="assets/images/IMG_2699.jpg" alt="Brutal Suede Boots" class="w-full h-full object-cover">
-                    </div>
-                    <div class="space-y-1">
-                        <h3 class="text-[10px] tracking-widest text-[#111111] uppercase font-light">Brutal Suede Boots</h3>
-                        <p class="text-[10px] tracking-widest text-zinc-500 font-light">$245.00</p>
-                    </div>
-                </div>
-
-            </div>
+            <div id="recommendedGrid" class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-12"></div>
         </section>
     </main>
 
