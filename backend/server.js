@@ -5,6 +5,11 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 console.log("Resend API key loaded:", !!process.env.RESEND_API_KEY);
 const express = require('express');
 const cors = require('cors');
+const allowedOrigins = [
+  'http://localhost:5500',
+  'http://127.0.0.1:5500',
+  'https://glowing-cuchufli-4f0f97.netlify.app'
+];
 const connectDB = require('./config/db');
 const contactRoutes = require("./routes/contactRoutes");
 const productRoutes = require('./routes/productRoutes');
@@ -16,9 +21,16 @@ const app = express();
 app.set("trust proxy", 1);
 app.use(helmet());
 app.use(cors({
-    origin: ["http://127.0.0.1:5500", "https://caghaogwu.netlify.app"],  //Only allow requests coming from frontend running at this address.
-    credentials: true
-}));   
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 
 app.use('/api/contact', contactRoutes);
